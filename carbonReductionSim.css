@@ -1,0 +1,3604 @@
+/*
+Applet-specific styling for the Design Our Climate Simulation simulation.
+*/
+
+/* First, override some styling applied by kcvs-theme. */
+/* TODO: Check these against kcvs-theme.  Might not all be needed, and we might be able to use some kcvs-theme stuff more directly. */
+
+p > a {
+    text-decoration: underline;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', 'Arial', Verdana, Helvetica, sans-serif;
+}
+
+h1,
+.h1 {
+    font-size: 2.5rem;
+}
+
+h2,
+.h2 {
+    font-size: 1.75rem;
+}
+
+/* *** End of overriding kcvs-theme styling. *** */
+
+
+.darkMode a{
+    color:#00aa9c;
+    text-shadow: 1px 1px 1px rgba(210, 210, 210, 0.863);
+}
+
+div.aboutContent {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: left;
+}
+
+.aboutContent > h2 {
+    font-size: 1.5rem;
+}
+
+/* .aboutText {
+    text-align: left;
+} */
+
+.aboutLabels {
+    color: #01635b;
+}
+.darkMode .aboutLabels{
+    color:#03b9ab;
+}
+
+#appletContainer {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.darkMode #appletContainer{
+    background: #303030;
+}
+
+.appletBackground {
+    /* Several components get set to the same background colour to hide things. */
+    background-color: white;
+}
+
+.darkMode.appletBackground{
+    background-color: #212121;
+}
+
+.darkMode .appletBackground{
+    background-color: #303030;
+}
+
+.assumptionsButton {
+    /* background-color: rgba(225, 225, 225, 0.596); */
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 2px;
+    float: right;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    text-shadow: 1px 1px 2px #ffffff2e;
+    transition: 0.5s;
+}
+
+.assumptionsButton:active {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-style: inset;
+}
+
+.assumptionsButton:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+
+.assumptionsButton-icon {
+    border: none;
+    border-radius: 1em;
+    /* background: transparent; */
+    background: rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 0px 0px 5px white;
+    box-shadow: 0px 0px 5px white;
+    height: 1em;
+    margin: 0;
+    padding: 0;
+    width: 1em;
+}
+
+.assumptionsButton-icon:active {
+    border: none;
+    fill: black;
+}
+
+.assumptionsButton-icon:hover {
+    background: transparent;
+    border: none;
+}
+
+.assumptionsButton-icon:hover>svg {
+    /* fill: grey; */
+    fill: rgb(3, 185, 170);
+}
+
+.belowDisplay {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    flex: 0 0 auto;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    padding-left: 2rem;
+    width: 100%;
+    -webkit-transition: padding 400ms, opacity 400ms, visibility 400ms;
+    -o-transition: padding 400ms, opacity 400ms, visibility 400ms;
+    -moz-transition: padding 400ms, opacity 400ms, visibility 400ms;
+    transition: padding 400ms, opacity 400ms, visibility 400ms;
+}
+
+#bigWindow > div:first-of-type {
+  position: sticky;
+  top: 0%;
+}
+
+button {
+    /* background-image: -webkit-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -moz-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -o-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: radial-gradient( circle at top, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2)); */
+    background-color: #fff;
+    font-size: 100%;
+}
+/* button:active {
+    box-shadow: inset 0 1px 0.4rem rgba(0, 0, 0);
+} */
+
+.buttonByText {
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.buttonByText + .buttonByText {
+    clear: right;
+    margin-top: -1rem;
+}
+
+/* 
+#helpPageContent > .buttonByText {
+    float: right;
+}
+
+#helpPageContent > .buttonByText > .assumptionsButton {
+    float: none;
+} */
+
+.buttonShine {
+    background-image: -webkit-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -moz-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -o-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: radial-gradient( circle at top, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+}
+
+.carbonCategoryButton,
+.whatNextButton {
+    background-image: -webkit-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -moz-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -o-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: radial-gradient( circle at top, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    border: 1.5px solid black;
+    border-radius: 2rem;
+    /* box-shadow: black 0.2rem 0.2rem 0.4rem 0px; */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0.7rem;
+    /* box-shadow: 2px; */
+    -webkit-transition-duration: 400ms;
+    -moz-transition-duration: 400ms;
+    -o-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transition-property: background, border-color, border-style, color, fill;
+    -o-transition-property: background, border-color, border-style, color, fill;
+    -moz-transition-property: background, border-color, border-style, color, fill;
+    transition-property: background, border-color, border-style, color, fill;
+}
+
+.whatNextButton {
+    background-image: none;
+    background-color: #fff;
+    /* background-image: none; */
+    /* border: 1px solid black; */
+    /* border-radius: 1.5em; */
+    /* box-sizing: border-box; */
+    /* display: inline-block; */
+    color: black;
+    float: none;
+    font-weight: bold;
+    height: 3.5rem;
+    line-height: 1;
+    /* width: 3.5em; */
+    text-decoration: none;
+}
+
+.whatNextButton:link,
+.whatNextButton:visited {
+    color: black;
+}
+
+
+.carbonCategoryButton:disabled {
+    /* background-image: none; */
+    background: lightgray;
+    border-color: darkgrey;
+    border-style: dashed;
+    -webkit-transition-duration: 400ms;
+    -moz-transition-duration: 400ms;
+    -o-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transition-property: background, border-color, border-style, color, fill;
+    -o-transition-property: background, border-color, border-style, color, fill;
+    -moz-transition-property: background, border-color, border-style, color, fill;
+    transition-property: background, border-color, border-style, color, fill;
+}
+
+.carbonCategoryButton:disabled>svg {
+    fill: darkgrey;
+    -webkit-transition: fill 400ms;
+    -o-transition: fill 400ms;
+    -moz-transition: fill 400ms;
+    transition: fill 400ms;
+}
+
+button.carbonCategoryButton:disabled:active,
+button.carbonCategoryButton:disabled:hover {
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+}
+
+button.carbonCategoryButton:active,
+.whatNextButton:active {
+    -webkit-filter: brightness(75%);
+    filter: brightness(75%);
+}
+
+.carbonCategory-current .feather {
+    fill: white;
+}
+
+.carbonCategoryMenu {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    flex: 0 0 auto;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+}
+
+.carbonCategoryMenu>span {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -moz-box-flex: 1;
+    flex: 1 0 auto;
+}
+
+.carbonCategoryMenu>span:last-child {
+    /* Extra space for the "what next" button. */
+    -webkit-box-flex: 5;
+    -webkit-flex: 5 0 auto;
+    -moz-box-flex: 5;
+    flex: 5 0 auto;
+}
+
+/* Anything with this class will be set by JavaScript to the colour of the
+current category. */
+
+.categoryColor {
+    color: black;
+    background-color: white;
+    /* default */
+    -webkit-transition: background-color 400ms, fill 400ms, stroke 400ms;
+    -o-transition: background-color 400ms, fill 400ms, stroke 400ms;
+    -moz-transition: background-color 400ms, fill 400ms, stroke 400ms;
+    transition: background-color 400ms, fill 400ms, stroke 400ms;
+}
+/* .darkMode .categoryColor{
+    background-color:#303030;
+    color: rgb(210,210,210);
+} */
+
+#categoryValue {
+    position: absolute;
+    top: 81%;
+    left: -19%;
+    width: 100%;
+}
+/*Colours for the impact Crater:*/
+
+.color-temperature {
+    fill: #da8545;
+    stroke-width: 2;
+}
+
+.color-CO2Concentration {
+    fill: #cc79a7;
+    stroke-width: 2;
+}
+
+.color-seaLevel {
+    fill: #3881ac;
+    stroke-width: 2;
+}
+
+.color-oceanPH {
+    fill: #ece46f;
+    stroke-width: 2;
+}
+
+.color-arcticIce {
+    fill: #47ac91;
+    stroke-width: 2;
+}
+/* These colour classes start with "color" so they'll group alphabetically. */
+
+.color-noCat {
+    background-color: white;
+    /* fill: white;
+    stroke: white; */
+}
+
+.color-electricity {
+    background-color: #E9EBA5;
+    /* fill: #E9EBA5;
+    stroke: #E9EBA5; */
+}
+
+.color-transportation {
+    background-color: #A4DAEC;
+    /* fill: #A4DAEC;
+    stroke: #A4DAEC; */
+}
+
+.color-landuse {
+    background-color: #A4ECB0;
+    /* fill: #A4ECB0;
+    stroke: #A4ECB0; */
+}
+
+.color-buildings {
+    background-color: #ECA4A4;
+    /* fill: #ECA4A4;
+    stroke: #ECA4A4; */
+}
+
+.color-materials {
+    background-color: #d1a4ec;
+    /* fill: #ECA4A4;
+    stroke: #ECA4A4; */
+}
+/* 
+
+Colours for percent display bar graphs.  These use the Viridis
+colorblind-friendly palettes.  One way to generate a Viridis-style colour
+palette is using R:
+
+library(scales)
+show_col(viridis_pal(option="A")(6)) # display the colours
+viridis_pal(option="A")(6) # list the hex codes
+
+The (6) here is the number of colours.  Options "A" through "D" are four
+different colour scales.
+
+TODO: Make sure these look reasonably good with the rest of our colours!
+*/
+
+.color-solar,
+.kcvsPanel.color-solar {
+    background-color: #FDE725;
+}
+
+.color-wind,
+.kcvsPanel.color-wind {
+    background-color: #8FD744;
+}
+
+.color-nuclear,
+.kcvsPanel.color-nuclear {
+    background-color: #35B779;
+}
+
+.color-geothermal,
+.kcvsPanel.color-geothermal {
+    background-color: #21908C;
+}
+
+.color-hydro,
+.kcvsPanel.color-hydro {
+    background-color: #31688E;
+}
+
+.color-naturalGas,
+.kcvsPanel.color-naturalGas {
+    background-color: #443A83;
+}
+
+.color-biomass,
+.kcvsPanel.color-biomass {
+    background-color: #481568;
+}
+
+.color-baseCoal,
+.kcvsPanel.color-baseCoal,
+.color-coal,
+.kcvsPanel.color-coal {
+    /* background-color: #440154; */
+    background-color: #222;
+} 
+
+.color-electricVehicle,
+.kcvsPanel.color-electricVehicle {
+    background-color: #231151FF;
+    /* background-color: #D3436EFF; */
+}
+
+.color-fuelCellVehicle,
+.kcvsPanel.color-fuelCellVehicle {
+    background-color: #5F187FFF;
+    /* background-color: #982D80FF; */
+}
+
+.color-propaneVehicle,
+.kcvsPanel.color-propaneVehicle {
+    background-color: #982D80;
+}
+
+.color-hybridVehicle,
+.kcvsPanel.color-hybridVehicle {
+    background-color: #D3436EFF;
+}
+
+.color-dieselVehicle,
+.kcvsPanel.color-dieselVehicle {
+    background-color: #F8765CFF
+}
+
+.color-biofuelVehicle,
+.kcvsPanel.color-biofuelVehicle {
+    background-color: #FEBA80FF
+}
+
+.color-gasolineVehicle,
+.kcvsPanel.color-gasolineVehicle {
+    background-color: #FCFDBFFF;
+}
+
+.color-biomassHeating,
+.kcvsPanel.color-biomassHeating {
+    background-color: #D4493E;
+}
+
+.color-geothermalHeating,
+.kcvsPanel.color-geothermalHeating {
+    background-color: #E5572F;
+}
+
+.color-naturalGasHeating,
+.kcvsPanel.color-naturalGasHeating {
+    background-color: #F57917;
+}
+
+.color-oilHeating,
+.kcvsPanel.color-oilHeating {
+    background-color: #FCA50E;
+}
+
+.color-electricHeating,
+.kcvsPanel.color-electricHeating {
+    background-color: #F9CC36;
+}
+
+.color-coalHeating,
+.kcvsPanel.color-coalHeating {
+    background-color: #F2E961;
+}
+
+.color-naturalGasCooling,
+.kcvsPanel.color-naturalGasCooling {
+    background-color: #33648D;
+}
+
+.color-electricityCooling,
+.kcvsPanel.color-electricityCooling {
+    background-color: rgb(24, 136, 136);
+}
+
+.color-population,
+.kcvsPanel.color-population {
+    background-color: #e8e8e8;
+}
+/* #coalEfficiencySliderPanel {
+    background-color: #c3c3c3;
+    margin-top: 16px;
+} */
+/* #coalCCSPercentSliderPanel {
+    background-color: #c3c3c3;
+} */
+
+#coalEfficiencySliderPanel {
+    /* This is inside a percent-slider "drawer" so it calls for some extra treatment. */
+    margin-top: 1rem;
+}
+
+.columnContainer {
+    /* box-sizing: border-box; */
+    /* height: 100vh; */
+    /* margin-top: -32px; */
+    /* overflow-y: scroll; */
+    /* padding-top: 32px; */
+    /* padding-top: 40px; */
+    height: 100%;
+    
+    -webkit-box-flex: 0;
+    
+    -webkit-flex: 0 0 auto;
+    
+    -moz-box-flex: 0;
+    
+    /* flex: 0 0 auto; */
+    flex: 1 1 50%;
+    position: relative;
+    /* width: 50%; */
+}
+
+.contentContainer.appletBackground {
+    /* With this calc, content should fill the page but leave space for the menu bar.  This is a KLUDGE; if the menubar changes size then the 32px needs to be adjusted here.  (I tried to make this work with Flexbox but I think the layout would need a deeper overhaul for that. -Rob.)  */
+    /* Note that this applies when BOTH contentContainer and appletBackground are present.  For pages like references and glossary, remove the appletBackground class. */
+    height: calc(100vh - 32px);
+    width: 100%;
+}
+
+.CIScale {
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    /* float: right; */
+    border-left-color: 25%;
+    top: 0;
+    right: 40px;
+    border-radius: 1rem;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    overflow: hidden;
+    padding: 1px;
+    margin-right: 5px;
+    
+}
+
+.CIIcon {
+    float: left;
+}
+
+
+.CCSIcon {
+    float: left;
+    padding-left: 5px;
+}
+    
+.capturable{
+    
+    background-color:black;
+    
+}
+    
+.capturable > svg{ 
+    
+    fill: white;
+    
+}
+
+/* We want the controlPage to take up the full screen height (100vh) _except_ for the menu bar.  This is being accomplished using border-box, padding-top (to push down the content), and margin-top (to move the box back up under the menu bar). */
+.controlPage {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* margin-bottom: 1rem; */
+    /* margin-top: -32px; */
+    opacity: 0;
+    /* padding-top: 1rem; */
+    /* padding-top: 32px; */
+    padding-right: 0.5rem;
+    position: absolute;
+    top: -1000px;
+    /* width: 100%; */
+    -webkit-transition: opacity 400ms, top 0ms 400ms, visibility 0ms 400ms;
+    -o-transition: opacity 400ms, top 0ms 400ms, visibility 0ms 400ms;
+    -moz-transition: opacity 400ms, top 0ms 400ms, visibility 0ms 400ms;
+    transition: opacity 400ms, top 0ms 400ms, visibility 0ms 400ms;
+    visibility: hidden;
+    z-index: 0;
+    
+    /* height: 100vh; */
+    height: 100%;
+    width: 100%;
+    /* overflow-y: scroll; */
+    
+    /* FIXME: for testing. */
+    /* visibility: hidden !important; */
+}
+
+.controlPage.controlPage-current {
+    opacity: 1;
+    top: 0px;
+    -webkit-transition: top 400ms;
+    -o-transition: top 400ms;
+    -moz-transition: top 400ms;
+    transition: top 400ms;
+    visibility: visible;
+    z-index: 1;
+}
+
+.controlPage h1 {
+    text-align: center;
+}
+
+.controlPage h2 {
+    text-align: left;
+}
+
+.controlPage h1,
+.controlPage h2,
+.controlPage h3,
+.controlPage h4 {
+    margin-top: 0.5rem;
+}
+
+#controlsContainer {
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    z-index: 0;
+}
+/* For pop-up (modal) windows.  (Should go in kcvsTheme.) */
+
+.closeButton {
+  /* background: linear-gradient(#fff, #e0e0e0);
+  border-radius: 2px; */
+
+  background: #bfbfbf;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  box-shadow: none;
+  top: 2%;
+  right: -4%;
+}
+
+  .closeButton:hover {
+    background: linear-gradient(rgb(248, 248, 248), #dbdbdb);
+    cursor: pointer;
+
+    background: #9a9a9a;
+  }
+
+#bigWindow .closeButton {
+  top: 2%;
+  right: -4%;
+}
+
+#window .closeButton {
+  top: 4%;
+  right: 3%;
+}
+
+.displayBox {
+    /* background: linear-gradient(#dfdfdf, white); */
+
+    /* background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e0e0e0));
+    background: -webkit-linear-gradient(#fff, #e0e0e0);
+    background: -moz-linear-gradient(#fff, #e0e0e0);
+    background: -o-linear-gradient(#fff, #e0e0e0);
+    background: linear-gradient(#fff, #e0e0e0); */
+
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.281);
+}
+
+.displayBox h1,
+.displayBox h2 {
+    text-align: left;
+}
+
+.displayGraphContainer {
+    /* flex: 0 1 30vh; */
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 100%;
+    -moz-box-flex: 0;
+    flex: 0 1 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#displaysContainer {
+    /* I (Rob) couldn't force this to full-height using percentage, but 100vh includes the menubar.  Hence the padding/margin trick. */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    
+    /* height: 100vh; */
+    height: 100%;
+    /* margin-top: -32px; */
+    padding-left: 0;
+    /* padding-right: 0; */
+    /* padding-top: 32px; */
+    /* position: absolute; */
+    /* top: 32px; */
+    z-index: 10;
+}
+
+#displaysStickyWrapper {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* margin-top: 2rem; */
+}
+
+.DOCSButton {
+    background-color: rgba(225, 225, 225, 0.596);
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 2px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    text-shadow: 1px 1px 2px #ffffff2e;
+}
+
+.feasibilityAssumptionsIcon {
+    background-color: white;
+    background-image: none;
+    /* border: solid black 1px;
+    border-radius: 1rem; */
+    /* display: inline-block; */
+    /* font-size: 0.9rem; */
+    /* height: 1rem; */
+    height: 1em;
+    margin: 2px;
+    margin-right: auto;
+    text-align: center;
+    /* width: 1rem; */
+    width: 1em;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+}
+/* .feasibilityAssumptionsIcon:focus,
+.feasibilityAssumptionsIcon:hover {
+    box-shadow: rgb(3, 185, 170) 0px 0px 20px 0px;
+} */
+
+.shrunk .feasibilityAssumptionsIcon {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: margin 400ms, opacity 400ms, visibility 0ms 400ms;
+    -o-transition: margin 400ms, opacity 400ms, visibility 0ms 400ms;
+    -moz-transition: margin 400ms, opacity 400ms, visibility 0ms 400ms;
+    transition: margin 400ms, opacity 400ms, visibility 0ms 400ms;
+}
+
+.shrunk .timeScale {
+    display: none;
+}
+
+.feasibilityBase {
+    background-color: #EEE;
+    border: solid black 1px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5rem;
+    line-height: normal;
+    position: relative;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -moz-box-flex: 0;
+    flex: 0 1 auto;
+    overflow: hidden;
+    width: 8em;
+    min-width: 6em;
+    -webkit-transition: width 400ms;
+    -o-transition: width 400ms;
+    -moz-transition: width 400ms;
+    transition: width 400ms;
+}
+
+.shrunk .feasibilityBase {
+    font-size: 0.8rem;
+    height: 1.1rem;
+    -webkit-transition: margin 400ms;
+    -o-transition: margin 400ms;
+    -moz-transition: margin 400ms;
+    transition: margin 400ms;
+}
+
+.feasibilityFill {
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.feasibilityFill.realistic {
+    background-color: darkgreen;
+}
+
+.feasibilityFill.unrealistic {
+    background-color: darkred;
+}
+
+.feasibilityLabel {
+    background-image: -webkit-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.feasibilityBase:focus .feasibilityLabel,
+.feasibilityBase:hover .feasibilityLabel {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+/* #graphAssumptionsButton {
+    left: 17%;
+    position: absolute;
+    top: 1rem;
+    z-index: 499;
+} */
+
+#footerContainer {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
+}
+
+#footerContainer > a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.darkMode #footerContainer{
+    background-color: transparent;
+}
+
+.glossary {
+    text-decoration: underline;
+    -webkit-text-decoration-style: double;
+    -moz-text-decoration-style: double;
+    text-decoration-style: double;
+}
+
+/* .goalButton {
+    background-color: rgb(200, 243, 239);
+    border: 1px solid black;
+    border-radius: 1em;
+    bottom: 1.7rem;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 4px;
+    padding-top: 2px;
+    position: absolute;
+    right: 2rem;
+    z-index: 400;
+}
+
+.goalButton:focus,
+.goalButton:hover {
+    background-color: rgb(200, 243, 239);
+    border-color: rgb(3, 185, 170);
+}
+
+.goalButton:hover > .assumptionsButton-icon {
+    background: transparent;
+    fill: rgb(3, 185, 170);
+}
+
+#goalButtonArrow {
+    transform: rotate(45deg);
+} */
+
+.goalButton {
+    fill: rgb(200, 243, 239);
+    /* stroke: black; */
+}
+
+.goalButtonText {
+    /* font-weight: bold; */
+    pointer-events: none;
+}
+
+.goalButton:focus,
+.goalButton:hover {
+    cursor: pointer;
+    fill: white;
+    stroke: rgb(3, 185, 170);
+}
+
+hr {
+    margin: 1rem auto;
+    border-bottom: 1px solid black;
+}
+
+.instructionsBg {
+  background-color: #efefef;
+  border-radius: 5px;
+  padding: 2% 5%;
+}
+
+.imgLeft {
+  max-width: 50%;
+}
+
+  .imgLeft>div:hover {
+    color: black;
+  } 
+
+  .imgLeft>img {
+    border-radius: 5px;
+  }
+
+  .imgLeft>img:hover {
+    -webkit-box-shadow: rgb(3, 185, 170) 0px 0px 20px 0px;
+    box-shadow: rgb(3, 185, 170) 0px 0px 20px 0px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+/* Use this to initially hide elements until the injected material is laid out properly, so the user doesn't have to watch them jump around. */
+
+.initInvisible,
+.initInvisible.hideOnShrink {
+    opacity: 0;
+}
+
+.initInvisible.revealed,
+.initInvisible.hideOnShrink.revealed {
+    opacity: 1;
+    -webkit-transition: opacity 2000ms 1000ms;
+    -o-transition: opacity 2000ms 1000ms;
+    -moz-transition: opacity 2000ms 1000ms;
+    transition: opacity 2000ms 1000ms;
+}
+
+.listIntro {
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.newWindowLink {
+    background-color: lightgray;
+    border-color: lightgray;
+    color: black;
+    float: right;
+    line-height: 1;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    margin-top: -2px;
+}
+
+.newWindowLink:link {
+    color: black;
+}
+
+.newWindowLink:visited {
+    color: black;
+}
+
+
+/* Full-size display. */
+.shrinkingDisplay {
+    cursor: auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+    -moz-box-flex: 1;
+    flex: 1 1 100%;
+    max-width: 100%;
+    opacity: 1;
+    overflow: hidden;
+    padding: 0.5rem;
+    position: relative;
+    -webkit-transition: height 400ms, opacity 400ms, padding 400ms, width 400ms;
+    -o-transition: height 400ms, opacity 400ms, padding 400ms, width 400ms;
+    -moz-transition: height 400ms, opacity 400ms, padding 400ms, width 400ms;
+    transition: height 400ms, opacity 400ms, padding 400ms, width 400ms;
+}
+
+.shrinkingDisplay>h2 {
+    /* font-size: 1.2rem; */
+    font-size: 1rem;
+    /* height: 1.4em; */
+    /* overflow: hidden; */
+    /* font-weight: normal; */
+    text-align: left;
+}
+
+.shrinkingDisplay .shrinkingCover {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.shrinkingDisplay svg:not(.svgIcon) {
+    /* max-height: 30vh; */
+    max-height: 100%;
+    max-width: 100%;
+    
+    /* height: 80%; */
+}
+
+.shrinkingDisplay.full {
+    /* max-height: 40vh; */
+}
+
+.shrinkingDisplay.full svg {
+    /* max-height: 30vh; */
+    /* height: auto; */
+}
+
+/* Icon-size display for small screens. */
+.shrinkingDisplay.shrunk {
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+    height: auto;
+    max-height: 40vh;
+    width: 30%;
+    -webkit-transition: height 400ms, padding 400ms, width 400ms;
+    -o-transition: height 400ms, padding 400ms, width 400ms;
+    -moz-transition: height 400ms, padding 400ms, width 400ms;
+    transition: height 400ms, padding 400ms, width 400ms;
+}
+
+.shrinkingDisplay.shrunk .shrinkingCover {
+    visibility: visible;
+}
+
+.shrinkingDisplay.shrunk svg text {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+    -webkit-transition: fill-opacity 400ms, stroke-opacity 400ms;
+    -o-transition: fill-opacity 400ms, stroke-opacity 400ms;
+    -moz-transition: fill-opacity 400ms, stroke-opacity 400ms;
+    transition: fill-opacity 400ms, stroke-opacity 400ms;
+}
+
+.hideOnShrink {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+}
+
+.shrunk .hideOnShrink {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 400ms, visibility 0ms 400ms;
+    -o-transition: opacity 400ms, visibility 0ms 400ms;
+    -moz-transition: opacity 400ms, visibility 0ms 400ms;
+    transition: opacity 400ms, visibility 0ms 400ms;
+}
+
+.shrunk .removeOnShrink {
+    display: none;
+}
+
+.shrunk .belowDisplay {
+    padding: 0;
+    margin-top: -1rem;
+    -webkit-transition: margin 400ms, padding 400ms;
+    -o-transition: margin 400ms, padding 400ms;
+    -moz-transition: margin 400ms, padding 400ms;
+    transition: margin 400ms, padding 400ms;
+}
+
+.shrinkingDisplay:not(.shrunk) > .zoomIcon {
+    cursor: -webkit-zoom-out;
+    cursor: -moz-zoom-out;
+    cursor: zoom-out;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition: -webkit-transform 400ms;
+    transition: -webkit-transform 400ms;
+    -o-transition: -o-transform 400ms;
+    -moz-transition: transform 400ms, -moz-transform 400ms;
+    transition: transform 400ms, -webkit-transform 400ms, -moz-transform 400ms, -o-transform 400ms;
+}
+
+.shrinkingDisplay.shrunk > .zoomIcon {
+    left: 2px;
+    right: auto;
+    -webkit-transition: position 400ms, right 400ms, -webkit-transform 400ms;
+    -o-transition: position 400ms, right 400ms, -o-transform 400ms;
+    -moz-transition: position 400ms, transform 400ms, right 400ms, -moz-transform 400ms;
+    transition: position 400ms, transform 400ms, right 400ms, -webkit-transform 400ms, -moz-transform 400ms, -o-transform 400ms;
+}
+
+/* Hide the zoom icon when not in use. */
+
+.shrinkingDisplay.full > .zoomIcon {
+    visibility: hidden;
+}
+/* Shrunk to invisibility! */
+
+.shrinkingDisplay.shrunkHidden {
+    opacity: 0;
+    padding: 0px;
+    width: 0px;
+    visibility: hidden;
+    -webkit-transition: opacity 400ms, padding 400ms, width 400ms, visibility 0ms 400ms;
+    -o-transition: opacity 400ms, padding 400ms, width 400ms, visibility 0ms 400ms;
+    -moz-transition: opacity 400ms, padding 400ms, width 400ms, visibility 0ms 400ms;
+    transition: opacity 400ms, padding 400ms, width 400ms, visibility 0ms 400ms;
+}
+
+.shrinkWrap {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+/* .shrinkWrap.shrunk {
+    padding-left: 15%;
+    padding-right: 15%;
+} */
+
+.shrinkWrap .shrunk:first-of-type {
+    padding-left: 15%;
+}
+
+.shrinkWrap .shrunk:last-of-type {
+    padding-right: 15%;
+}
+
+.sliderRealityCheck {
+    background-image: -webkit-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    background-image: -moz-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    background-image: -o-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    background-image: radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    font-weight: bold;
+    margin-top: -0.75rem;
+    opacity: 0;
+    position: absolute;
+    top: 0.25rem;
+    width: 100%;
+    -webkit-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+}
+
+.sliderRealityCheck.unrealistic {
+    opacity: 1;
+    -webkit-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+}
+
+h3.sectionTitle {
+    font-size: 20px;
+    text-align: left;
+    padding-top: 15px;
+    margin: 0;
+}
+/* 
+Styling for "Feather" SVG icons, stored in img/feather-sprite.svg .
+From: https://feathericons.com
+Available under the MIT Open-Source License.
+*/
+/* .svgIcon {
+    width: 30px;
+    height: 30px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: miter;
+    fill: white;
+} */
+/*
+Styling for "FontAwesome" SVG icons, stored in 
+img/fontawesome/fontawesome-free-5.9.0-web-solid-sprite.svg.
+From https://fontawesome.com .
+Available under a Creative Commons Attribution 4.0 License.
+*/
+
+.svgIcon {
+    width: 30px;
+    height: 30px;
+    /* stroke: currentColor;
+    stroke-width: 15px; */
+    fill: black;
+}
+
+.svgIcon-menu {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+}
+
+.svgIcon-inline {
+    height: 1em;
+    margin-bottom: -0.125em;
+    width: 1em;
+}
+
+svg svg {
+    overflow: visible;
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+    font-weight: bold;
+}
+
+h3 {
+    margin-bottom: 2px;
+}
+
+.impactWedge:hover {
+  cursor: pointer;
+}
+
+.horizSubMenuCont {
+    background: #f9f9f9f7;
+}
+
+.menuBar {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#DDDDDD77));
+    background-image: -webkit-linear-gradient(white, #DDDDDD77);
+    background-image: -moz-linear-gradient(white, #DDDDDD77);
+    background-image: -o-linear-gradient(white, #DDDDDD77);
+    background-image: linear-gradient(white, #DDDDDD77)
+}
+
+.kcvsAxisLabel,
+.tick {
+    font-size: 16px;
+}
+
+#projectionGraph .kcvsAxis,
+#projectionGraph .kcvsAxisLabel,
+#projectionGraph .tick {
+    /* Makes it easier to set the font size for the whole graph. */
+    font-size: inherit;
+}
+
+#projectionGraph {
+    /* Takes the font size from the container (easier to control this way). */
+    font-size: inherit;
+    height: 100%;
+}
+
+.kcvsSliderPanel .kcvsWidgetTitle {
+    max-width: -webkit-calc(100% - 1.5em);
+    max-width: -moz-calc(100% - 1.5em);
+    max-width: calc(100% - 1.5em);
+}
+
+.kcvsPanel {
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.kcvsPanel.color-coal .sliderHandle {
+    background-color: white;
+}
+
+.kcvsGraphLine {
+    stroke: black;
+    stroke-width: 2;
+}
+
+.darkMode .kcvsGraphLine{
+    stroke: #d2d2d2;
+}
+
+.kcvsSliderPanel {
+    border-color: #bababa;
+    border-radius: 3px;
+    padding-bottom: 0;
+    margin-top: 3px;
+}
+
+.kcvsSliderPanel:not(.categoryColor) {
+    background-color: #ffffff00;
+}
+
+.kcvsSliderPanel input {
+    height: 1.6em;
+    padding-left: 0.2em;
+    padding-right: 0em;
+    padding-top: 0.3em;
+    padding-bottom: 0.2em;
+    margin-bottom: 0.2rem;
+}
+
+.kcvsSliderLabelRow {
+    margin-bottom: 0.2rem;
+    position: relative;
+}
+
+.kcvsSliderLabelRow .svgIcon {
+    width: 1em;
+    height: 1em;
+    /* margin-right: 0.5em; */
+}
+
+.kcvsSliderLabelRow .assumptionsButton {
+    margin-top: 1px;
+}
+
+#historicalGraphToggle {
+    position: absolute;
+    bottom: 2rem;
+    left: 5rem;
+}
+
+.impactCircle {
+    fill: transparent;
+    stroke-width: 1;
+}
+
+.impactCircleLabel {
+    font-size: 8px;
+    font-weight: bold;
+    stroke: none;
+    vertical-align: 0.1em;
+}
+
+.impactCircle.reasonable {
+    stroke: green;
+}
+
+.impactCircleLabel.reasonable {
+    fill: green;
+}
+
+.impactCircle.extreme {
+    stroke: darkred;
+}
+
+.impactCircleLabel.extreme {
+    fill: darkred;
+}
+
+#impactSpace {
+    height: 100%;
+    width: 100%;
+}
+
+.impactText {
+    background-image: -webkit-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: radial-gradient( rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    -webkit-transition: opacity 1200ms;
+    -o-transition: opacity 1200ms;
+    -moz-transition: opacity 1200ms;
+    transition: opacity 1200ms;
+    color: black;
+    border-radius:10px;
+}
+
+.impactText.shown {
+    opacity: 1;
+    -webkit-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+}
+
+.impactText.impactLegend {
+    bottom: auto;
+    /* height: 20px; */
+    height: auto;
+    /* left: auto; */
+    line-height: 1;
+    padding-bottom: 4px;
+    /* text-align: right; */
+    top: 0;
+    width: auto;
+    opacity: 1;
+}
+
+.impactLegend-left {
+    left: 0;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    right: auto;
+    text-align: left;
+}
+
+.impactLegend-right {
+    left: auto;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    right: 0;
+    text-align: right;
+}
+
+input[type="checkbox"]+label {
+    background: #cf8835;
+}
+
+input[type="checkbox"]:checked+label {
+    background: #f5cc47;
+}
+
+.darkMode .kcvsLabel.kcvsSliderScale{
+    color:black;
+}
+
+#landAreaAssumptionsButton {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+}
+
+.landAreaImg {
+    margin: auto;
+    max-height: 100%;
+    -webkit-filter: brightness(80%);
+    filter: brightness(80%);
+}
+
+.landAreaMessage {
+    height: 10rem;
+    max-height: 40vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.landAreaMessageBox {
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 0 1rem 1rem rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 1rem 1rem rgba(255, 255, 255, 0.5);
+    padding-bottom: 0;
+    padding-top: 0;
+    position: absolute;
+    top: 4rem;
+    width: 100%;
+}
+
+.landAreaTable {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+#landAreaButton {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+    position: absolute;
+    top: -100px;
+    left: 0px;
+    color: white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 8px;
+    /* main KCVS logo colour */
+    /* background: #03b9aa; */
+    /* Darker version for better contrast: */
+    background: #00857a;
+    -webkit-transition: top 1s ease-out;
+    -o-transition: top 1s ease-out;
+    -moz-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    width: 40px;
+    z-index: 700;
+}
+
+#landAreaButton > svg {
+    color: white;
+    fill: white;
+}
+
+.learnDOCSbutton {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    background: white;
+    border-color: lightgray;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    padding-left: 0.3rem;
+    padding: 11.2% 15%;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.learnDOCSbutton > div {
+    display: inline-block;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    flex: 0 0 auto;
+}
+
+.learnDOCSbutton > div + div {
+    margin-left: 0.3em;
+}
+
+.learnDocsSubtitle {
+  font-size: .7em;
+  margin-bottom: 2px;
+}
+
+.licensingContainer {
+    /* bottom: 0; */
+    font-size: 12px;
+    /* padding-top: 0.2rem; */
+    /* position: fixed; */
+    text-align: center;
+    width: 100%;
+}
+
+/* .licensingContainer > a {
+    text-decoration: underline;
+} */
+
+
+#mainContent {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* height: 100vh; */
+    padding-top: 2rem;
+}
+
+.contentContainer.appletBackground #mainContent {
+    height: 100vh;
+}
+
+.mainRowWrapper {
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: normal;
+    flex-direction: row;
+    
+}
+
+main .menu {
+    text-shadow: unset;
+}
+
+.menu {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+    font-weight: normal;
+    /* text-transform: none; */
+    width: 100%;
+    z-index: auto;
+}
+
+.menu a {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.menu li {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.darkMode .menu a{
+    text-shadow: none;
+}
+
+.menu .carbonCategory-current .carbonCategoryButton,
+.carbonCategoryButton.carbonCategory-current {
+    border-width: 0.2rem;
+    -webkit-box-shadow: inset 0 1px 0.4rem rgba(0, 0, 0);
+    box-shadow: inset 0 1px 0.4rem rgba(0, 0, 0);
+    /* Reduce padding to make room for the border. */
+    padding: 0.6rem;
+}
+
+.menu.carbonCategoryMenu {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    background: none;
+    height: 4rem;
+}
+
+.menu.carbonCategoryMenu>li {
+    text-align: center;
+}
+
+.menu.carbonCategoryMenu ul {
+    text-align: left;
+}
+
+.menu.carbonCategoryMenu>li,
+.menu.carbonCategoryMenu>li>a,
+.menu.carbonCategoryMenu>li.is-dropdown-submenu-parent>a {
+    background: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.menu.dropdown>li.is-dropdown-submenu-parent>a::after {
+    border-style: none;
+    /* remove submenu arrows */
+}
+
+.menu li:focus .carbonCategoryButton:not(.carbonCategory-current),
+.menu li:hover .carbonCategoryButton:not(.carbonCategory-current),
+.carbonCategoryButton:focus:not(.carbonCategory-current),
+.carbonCategoryButton:hover:not(.carbonCategory-current),
+.whatNextButton:focus,
+.whatNextButton:hover,
+.learnDOCSbutton:hover {
+    -webkit-box-shadow: rgb(3, 185, 170) 0px 0px 20px 0px;
+    box-shadow: rgb(3, 185, 170) 0px 0px 20px 0px;
+    cursor: pointer;
+    transition: 0.5s;
+    /* border-width: 0.25rem; */
+}
+
+.menu li.is-active .carbonCategoryButton,
+.carbonCategoryButton.is-active {
+    -webkit-box-shadow: inset 0 1px 0.4rem rgba(0, 0, 0);
+    box-shadow: inset 0 1px 0.4rem rgba(0, 0, 0);
+}
+
+#menuButton {
+    background: transparent;
+}
+
+.notification {
+    background: white;
+    left: 5%;
+    margin-top: 0;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+    position: absolute;
+    top: 0;
+    visibility: visible;
+    width: 90%;
+    z-index: 500;
+    -webkit-transition: top 200ms ease-out;
+    -o-transition: top 200ms ease-out;
+    -moz-transition: top 200ms ease-out;
+    transition: top 200ms ease-out;
+    border-radius: 2px;
+}
+
+.darkMode .notification{
+    color:black;
+}
+
+.notification.closed {
+    visibility: hidden;
+    top: -10rem;
+    -webkit-transition: top 200ms ease-in, visibility 0ms 400ms;
+    -o-transition: top 200ms ease-in, visibility 0ms 400ms;
+    -moz-transition: top 200ms ease-in, visibility 0ms 400ms;
+    transition: top 200ms ease-in, visibility 0ms 400ms;
+}
+
+.notification > .closeButton {
+    bottom: 0.6rem;
+    font-size: 12px;
+    height: 16px;
+    padding: 0;
+    right: 0.6rem;
+    top: auto;
+    width: 16px;
+}
+
+.notificationHandle {
+    bottom: 0.2rem;
+    left: 45%;
+    position: absolute;
+    width: 10%;
+}
+
+.notificationHandle>div {
+    border: none;
+    border-radius: 0.2rem;
+    height: 0.2rem;
+    opacity: 0.5;
+    width: 100%;
+}
+
+.notificationHandle>div+div {
+    margin-top: 0.15rem;
+}
+
+.noInteract {
+    pointer-events: none;
+}
+
+.electricitySliders {
+    background-color: #dee08f;
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.transportationSliders {
+    background-color: #7fc3eb;
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.landUseSliders {
+    background-color: #79dd8a;
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.buildingsSliders {
+    background-color: #e49898;
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.materialsSliders {
+    background-color: #d1a4ec;
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+ol,
+ul {
+    text-align: left;
+}
+
+.pageTitle {
+    outline: none;
+}
+
+#projectionGraphContainer {
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+.kcvsGraphWrapper {
+    height: 100%;
+}
+
+.graphDisplay {
+    /* box-sizing: border-box; */
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+}
+
+.graphDisplay > h2 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    flex: 0 0 auto;
+}
+
+.presentImpactWedge {
+    fill: none;
+    /* Stroke: #440154; */
+    stroke: black;
+    /* stroke-width: 0.25; */
+    stroke-width: 1;
+    /* stroke-dasharray: 1 1; */
+    stroke-dasharray: 2 1;
+}
+
+.printButton:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.reference {
+    color: #01635b;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.referencesList {
+    margin: 4%;
+    text-align: left;
+}
+
+#refWindowDiv {
+    text-align: left;
+}
+
+#refWindowDiv {
+    z-index: 9999;
+}
+
+.reviewerList {
+    list-style-type: none;
+}
+
+.shelfShadow.is-stuck {
+    -webkit-box-shadow: 0 0.5em 0.5rem -0.5rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.5em 0.5rem -0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.sliderTable {
+    margin-top: 0.2rem;
+}
+
+.sliderTable>tr {
+    border: solid 1px black;
+}
+
+.sliderTable .kcvsPanel {
+    border: none;
+    border-right: solid 1px black;
+    border-radius: 0;
+    margin: 0;
+}
+
+.sliderTableLabel {
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.3)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    font-size: 0.9em;
+    padding: 0;
+    padding-right: 0.5em;
+    text-align: left;
+    width: auto;
+    white-space: nowrap;
+}
+
+.sliderTableLabel svg {
+    height: 1.2em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    margin-bottom: -0.2em;
+    width: 1.2em;
+}
+
+.sliderTableSlider {
+    padding: 0;
+    width: 100%;
+}
+
+.sliderTableSlider input {
+    border-radius: 0.4rem;
+    font-size: 0.8em;
+    height: 1.6em;
+    margin-left: 0.4rem;
+    padding-left: 0.2em;
+    padding-right: 0em;
+    padding-top: 0.3em;
+    padding-bottom: 0.2em;
+}
+
+.kcvsSliderPanel .sliderTrack,
+.sliderTableSlider .sliderTrack {
+    margin-bottom: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+#termsOfUseButton {
+    border: 1px solid lightgray;
+    color: black;
+    float: none;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0.2rem;
+}
+
+.overviewAssumptions {
+  width: 30px;
+  height: 30px;
+}
+
+.percentButton {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    flex: 0 0 auto;
+    font-size: 90%;
+    margin: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.percentDisplay {
+    border: solid black 2px;
+    height: 2rem;
+    margin-top: 0.5rem;
+    /* position: relative; */
+    width: 100%;
+    z-index: 100;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0%;
+}
+
+button.percentDisplay:active {
+    -webkit-filter: brightness(75%);
+    filter: brightness(75%);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.percentDisplay:hover {
+    cursor: pointer;
+    -webkit-filter: brightness(105%);
+    filter: brightness(105%);
+    -webkit-box-shadow: 1px 1px 3px rgba(87, 87, 87, 0.788);
+    box-shadow: 1px 1px 3px rgba(87, 87, 87, 0.788);
+    border-radius: 5px;
+    transform: scale(1.005);
+    transition: 0.5s;
+}
+
+.percentDisplayTitle {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-box-align: end;
+    align-items: flex-end;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    font-size: 1rem;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    line-height: 1;
+    margin-top: 0.5rem;
+    margin-bottom: -2px;
+    text-align: left;
+}
+
+.percentDisplayTitleText {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -moz-box-flex: 1;
+    flex: 1 0 auto;
+}
+
+.percentDisplaySegment {
+    background-image: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient( left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    border-left: solid black 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    text-align: left;
+    top: 0;
+}
+
+.percentDisplaySegment svg {
+    height: 1.4rem;
+    margin: 2px;
+    width: 1.4rem;
+}
+
+.percentDisplayWrapper {
+    margin-bottom: 1rem;
+}
+
+.percentSliderSet {
+    max-height: 100%;
+    overflow: hidden;
+    -webkit-transition: max-height 400ms;
+    -o-transition: max-height 400ms;
+    -moz-transition: max-height 400ms;
+    transition: max-height 400ms;
+}
+
+.slider-handle {
+    background-image: -webkit-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -moz-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: -o-radial-gradient( top, circle, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+    background-image: radial-gradient( circle at top, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, .2));
+}
+
+.supportPageControls {
+    top: 0;
+    left: 0;
+    position: absolute;
+    margin-left: 0.5rem;
+    /* text-align: right; */
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+}
+
+.supportPageControls.left {
+    text-align: left;
+}
+
+h1.supportPageTitle {
+    padding-left: 1em;
+    margin-top: 1rem;
+}
+
+.zoomIcon {
+    /* This style describes the zoomicon when the display is NOT shrunk.  See .shrinkingDisplay.shrunk > .zoomIcon for positioning when display IS shrunk. */
+    background-color: rgba(82, 223, 228, 0.5);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+    height: 1.2rem;
+    padding: 4px;
+    position: absolute;
+    right: 1rem;
+    top: 0.25rem;
+    width: 1.2rem;
+    -webkit-transition: position 400ms, right 400ms, -webkit-transform 400ms;
+    -o-transition: position 400ms, right 400ms, -o-transform 400ms;
+    -moz-transition: position 400ms, transform 400ms, right 400ms, -moz-transform 400ms;
+    transition: position 400ms, transform 400ms, right 400ms, -webkit-transform 400ms, -moz-transform 400ms, -o-transform 400ms
+}
+
+.zoomIcon:focus,
+.zoomIcon:hover {
+    -webkit-box-shadow: rgb(3, 185, 170) 0px 0px 20px 0px;
+    box-shadow: rgb(3, 185, 170) 0px 0px 20px 0px;
+    /* outline: 0; */
+}
+
+.zoomIcon:active {
+    -webkit-box-shadow: inset 0 1px 0.4rem rgba(0, 0, 0);
+    box-shadow: inset 0 1px 0.4rem rgba(0, 0, 0);
+    border-style: inset;
+}
+
+.zoomIcon svg {
+    fill: black;
+    /* height: 1.2rem;
+    width: 1.2rem; */
+    height: 1rem;
+    width: 1rem;
+    padding: 0.1rem;
+}
+
+#graphHistoryToggle {
+    -webkit-transition: ease-in;
+    -o-transition: ease-in;
+    -moz-transition: ease-in;
+    transition: ease-in;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    /* position: absolute;
+    top: 76%;
+    left: 18%; */
+}
+
+#defaultGraphToggle {
+    -webkit-transition: ease-in;
+    -o-transition: ease-in;
+    -moz-transition: ease-in;
+    transition: ease-in;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    /* position: absolute;
+    top: 76%;
+    left: 22%; */
+}
+
+#defaultGraphToggle>svg {
+    fill: grey;
+}
+
+/* .graphToggleIcon {
+    border: none;
+    border-radius: 1em;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0px 0px 5px white;
+    height: 1em;
+    margin: 0;
+    padding: 0;
+    width: 1em;
+} */
+
+/* .graphToggleIcon:active {
+    border: none;
+    fill: black;
+} */
+
+.graphToggleBkg {
+    cursor: pointer;
+    fill: rgba(255, 255, 255, 0);
+}
+
+.graphToggleIcon {
+    /* Inactive by default. */
+    fill: lightgrey;
+    pointer-events: none;
+    -webkit-transition: fill 400ms;
+    -o-transition: fill 400ms;
+    -moz-transition: fill 400ms;
+    transition: fill 400ms;
+}
+
+
+.graphToggle-active + .graphToggleIcon {
+    fill: black;
+    -webkit-transition: fill 400ms;
+    -o-transition: fill 400ms;
+    -moz-transition: fill 400ms;
+    transition: fill 400ms;
+}
+
+.graphToggleBkg.graphToggle-active:hover + .graphToggleIcon,
+.graphToggleBkg.graphToggle-active:active + .graphToggleIcon {
+    fill: rgb(3, 185, 170);
+    -webkit-transition: fill 0ms;
+    -o-transition: fill 0ms;
+    -moz-transition: fill 0ms;
+    transition: fill 0ms;
+}
+
+.timeScale {
+    font-size: 0.9em;
+    margin-left: 0.5rem;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+}
+
+.timeScale .switch {
+    color: black;
+    display: inline-block;
+    font-weight: normal;
+    margin-bottom: 0;
+    vertical-align: text-bottom;
+}
+
+.timeScale .switch-paddle {
+    width: 4.4rem;
+    /* default is 4rem */
+}
+
+.timeScale .switch input:checked~.switch-paddle:after {
+    left: 2.65rem;
+}
+
+.timeScale .switch-active {
+    left: 0.2rem;
+}
+
+.timeScale .switch-inactive {
+    right: 0.2rem;
+}
+
+.toolboxcue {
+    font-size: 14px;
+}
+
+.tooltipwindow {
+    z-index: 9999;
+}
+
+.wedgeBackground {
+    fill: gold;
+    stroke: none;
+}
+
+.wedgeScore {
+    /* left: 0rem; */
+    position: absolute;
+    /* right: 0rem; */
+    top: 0.25rem;
+    width: 100%;
+}
+
+.darkMode .wedgeScore{
+    fill:#d2d2d2;
+}
+
+.wedgeScoreNum {
+    font-weight: bold;
+}
+
+.wedgeScore-flash {
+    -webkit-animation: 4s textFlash;
+    -moz-animation: 4s textFlash;
+    -o-animation: 4s textFlash;
+    animation: 4s textFlash;
+}
+
+@-webkit-keyframes textFlash {
+    from {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 1);
+    }
+    to {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 0);
+    }
+}
+
+@-moz-keyframes textFlash {
+    from {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 1);
+    }
+    to {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 0);
+    }
+}
+
+@-o-keyframes textFlash {
+    from {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 1);
+    }
+    to {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 0);
+    }
+}
+
+@keyframes textFlash {
+    from {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 1);
+    }
+    to {
+        text-shadow: 0 0 1em rgba(3, 185, 170, 0);
+    }
+}
+
+.electricityWedgeBackground {
+    fill: rgb(225, 230, 92);
+    stroke: none;
+}
+/* .electricityWedgeBackground:hover {
+    fill: rgb(198, 202, 80);
+} */
+
+.vehicleWedgeBackground {
+    fill: rgb(89, 197, 233);
+    stroke: none;
+}
+/* .vehicleWedgeBackground:hover {
+    fill: rgb(76, 171, 202);
+} */
+
+.landUseWedgeBackground {
+    fill: rgb(118, 216, 134);
+    stroke: none;
+}
+/* .landUseWedgeBackground:hover {
+    fill: rgb(99, 185, 114);
+} */
+
+.buildingWedgeBackground {
+    fill: rgb(221, 118, 118);
+    stroke: none;
+}
+/* .buildingWedgeBackground:hover {
+    fill: rgb(185, 96, 96);
+} */
+
+.materialWedgeBackground {
+    fill: #c077eb;
+    stroke: none;
+}
+/* .materialWedgeBackground:hover {
+    fill: #a05fc5;
+} */
+
+.wedgeLine {
+    stroke: darkred;
+    stroke-width: 1;
+}
+
+/* .wedgeProjLine {
+    fill: none;
+    stroke: darkgreen;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: miter;
+} */
+
+/* .wedgeProjLine.wedgeTargetProjLine {
+    /* stroke: black; */
+    /* stroke: #00857a; */
+    /* stroke: rgb(16, 186, 172); */
+/* } */ 
+
+#window {
+    z-index: 9999;
+}
+
+.shrunk .wedgeProjLine {
+    stroke-width: 5;
+}
+
+.vertMenuCont {
+    background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(white));
+    background: -webkit-linear-gradient(#f1f1f1, white);
+    background: -moz-linear-gradient(#f1f1f1, white);
+    background: -o-linear-gradient(#f1f1f1, white);
+    background: linear-gradient(#f1f1f1, white);
+}
+
+.vertMenuSub {
+    background: #a1a1a133;
+}
+/****************************************************/
+/* QUEST MODE STYLING */
+/* 
+Some of these classes are redundant with others, but this makes it easier to
+control QM-specific effects. 
+*/
+
+#questModeIntroContent > h2 {
+    text-align: center;
+}
+
+.qm_carlPane {
+    /* align-self: center; */
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    flex: 0 0 auto;
+    /* padding: 0.5em; */
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+svg.qm_svgIcon {
+    /* A darker (higher-contrast) version of the KCVS logo color. */
+    color: #00857a;
+    fill: #00857a;
+}
+
+svg.qm_carlIcon {
+    color: rgba(3, 185, 170, 1);
+    fill: rgba(3, 185, 170, 1);
+    height: 2em;
+    width: 2em;
+}
+
+.qm_display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -moz-box-flex: 1;
+    flex: 1 0 auto;
+}
+
+.qm_displayWrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+    -moz-box-flex: 1;
+    flex: 1 1 100%;
+    /* flex: 0 0 auto; */
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 96%;
+}
+
+.darkMode .qm_displayWrapper{
+    color:black;
+}
+
+.qm_endQuestButton {
+    background: white;
+    height: 60px;
+}
+
+.qm_lookAtMe {
+    -webkit-animation: 1s infinite alternate pulseGlow;
+    -moz-animation: 1s infinite alternate pulseGlow;
+    -o-animation: 1s infinite alternate pulseGlow;
+    animation: 1s infinite alternate pulseGlow;
+}
+
+@-webkit-keyframes pulseGlow {
+    from {
+        -webkit-box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+    to {
+        -webkit-box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+}
+
+@-moz-keyframes pulseGlow {
+    from {
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+    to {
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+}
+
+@-o-keyframes pulseGlow {
+    from {
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+    to {
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+}
+
+@keyframes pulseGlow {
+    from {
+        -webkit-box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+    to {
+        -webkit-box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+}
+
+.qm_message {
+    /* align-self: center; */
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 0;
+    -moz-box-flex: 1;
+    flex: 1 0 0;
+    line-height: 1.1;
+    margin: 0;
+    /* padding-top: 0.5em; */
+    padding-bottom: 0.5em;
+    text-align: left;
+    white-space: normal;
+}
+
+.qm_msgDisplay {
+    /* align-items: stretch; */
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-box-align: end;
+    align-items: flex-end;
+    background-color: white;
+    border: solid 1px rgba(3, 185, 170, 1);
+    border-radius: 5px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    flex: 0 0 auto;
+    height: 6.5rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    -webkit-transition: height 400ms;
+    -o-transition: height 400ms;
+    -moz-transition: height 400ms;
+    transition: height 400ms;
+}
+
+.qm_msgDisplay-expanded {
+    height: 15rem;
+    max-height: 100%;
+    -webkit-transition: height 400ms;
+    -o-transition: height 400ms;
+    -moz-transition: height 400ms;
+    transition: height 400ms;
+}
+
+.qm_msgDisplayFlash {
+    -webkit-animation: 4s linear borderFlash;
+    -moz-animation: 4s linear borderFlash;
+    -o-animation: 4s linear borderFlash;
+    animation: 4s linear borderFlash;
+}
+
+@-webkit-keyframes borderFlash {
+    from {
+        -webkit-box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+    to {
+        -webkit-box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+}
+
+@-moz-keyframes borderFlash {
+    from {
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+    to {
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+}
+
+@-o-keyframes borderFlash {
+    from {
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+    to {
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+}
+
+@keyframes borderFlash {
+    from {
+        -webkit-box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+        box-shadow: rgba(3, 185, 170, 1) 0px 0px 10px 5px;
+    }
+    to {
+        -webkit-box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+        box-shadow: rgba(3, 185, 170, 0) 0px 0px 10px 0px;
+    }
+}
+
+.qm_msgPane {
+    /* align-self: center; */
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 0;
+    -moz-box-flex: 1;
+    flex: 1 0 0;
+    font-size: 90%;
+    max-height: 100%;
+    overflow-y: scroll;
+    /* padding-bottom: 0.5em; */
+    /* padding-top: 0.5em; */
+    text-align: left;
+    white-space: normal;
+}
+
+.qm_note {
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+    opacity: 1;
+    padding: 2px;
+}
+.darkMode .qm_note{
+    color:black;
+}
+
+.qm_msgWrapper {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    padding-top: 0.5em;
+    width: 100%;
+}
+
+.qm_msgWrapper + .qm_msgWrapper {
+    border-top: 0.5px solid lightgray;;
+    margin-top: 0.5em;
+}
+
+.qm_note {
+    max-width: 60%;
+    position: absolute;
+    z-index: 400;
+    -webkit-transition: height 400ms, opacity 400ms;
+    -o-transition: height 400ms, opacity 400ms;
+    -moz-transition: height 400ms, opacity 400ms;
+    transition: height 400ms, opacity 400ms;
+}
+
+.qm_note.qm_goalNote {
+    background-color: rgb(200, 243, 239);
+    border-radius: 1em;
+    border-width: 1.5px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.qm_targetWedgeLine {
+    stroke: red;
+    stroke-width: 3;
+    -webkit-transition: stroke 400ms, stroke-width 400ms;
+    -o-transition: stroke 400ms, stroke-width 400ms;
+    -moz-transition: stroke 400ms, stroke-width 400ms;
+    transition: stroke 400ms, stroke-width 400ms;
+}
+
+/* Put hidden class last so the cascade helps it override things. */
+
+.qm_hidden {
+    display: none;
+    height: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    visibility: hidden !important;
+    -webkit-transition: height 400ms, opacity 400ms, visibility 0ms 400ms;
+    -o-transition: height 400ms, opacity 400ms, visibility 0ms 400ms;
+    -moz-transition: height 400ms, opacity 400ms, visibility 0ms 400ms;
+    transition: height 400ms, opacity 400ms, visibility 0ms 400ms;
+}
+/* Notes should just fade out, not flatten. */
+
+.qm_hidden.qm_note {
+    height: auto !important;
+}
+
+
+/* 
+Wrapper for embedded-video iframes.  These set the aspect ratio and scale the iframe responsively; otherwise it uses a fixed size which is too big for e.g. mobile.  TODO: Move this to kcvs-theme. 
+
+Notes on how this works: Need both the videocontainer class and a class for a specific aspect ratio, like videocontainer-16x9 .  When you specify padding as a percent, it's always a percent of the _width_, not the height -- which is really weird, but that's the spec, and it lets us use this hack to get the aspect ratio right.  (I (Rob) don't think that's true of "height", which is why this is set using padding instead.)  Then any iframe inside the videocontainer gets set to fill the div.  (Unfortunately we can't do this directly on the iframe the way we could with an image.)
+*/
+.videocontainer {
+    position: relative;
+    height: 0;
+}
+
+.videocontainer-16x9 {
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+.videocontainer iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.summaryGridContainer {
+    max-width: 100%;
+}
+
+.summaryGridContainer,
+.landUseSummaryContainer,
+.buildingsSummaryContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.summaryGrid {
+    display: grid;
+    grid-template-columns: 485px 485px;
+    grid-gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.summaryFeasibility {
+    /* left: -6rem;
+    top: 2rem; */
+    /* width: 12%; */
+}
+
+
+.summaryButton {
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 2px;
+    margin-top: 10px;
+    /* padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem; */
+    padding: 0.5rem;
+    position: relative;
+    text-shadow: 1px 1px 2px #ffffff2e;
+}
+
+.summaryButton.printButton {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.printButtonContainer {
+    width: 100%;
+}
+
+.populationSlider {
+    margin: 1%;
+}
+
+        /***********************************************/
+        /*             SUMMARY PAGE STYLING             /
+        /***********************************************/
+
+        #projectionGraph {
+          overflow: hidden;
+        }
+
+        #summaryBackButton, #aboutBackButton {
+          float: right;
+          margin-right: 1%;
+        }
+
+        #summaryCommonSliders {
+          display: grid;
+          grid-template-columns: 50% 50%;
+        }
+
+          #summaryCommonSliders fieldset{
+            margin: 2%;
+          }
+
+        #summaryContainer, #instructionsContainer {
+          display: none;
+        }
+
+        .summaryControls {
+          position: sticky;
+          top: 2%;
+          z-index: 10;
+        }
+
+          .summaryControls button, #aboutBackButton {
+            /* background: radial-gradient(#53c9c1, #20948c); */
+            border-radius: 5px;
+            border: 1px solid #00000063;
+            /* color: #fff; */
+            padding: 1% 1.5%;
+            z-index: 100;
+            transition: 0.5s all;
+          }
+
+          .summaryControls button:hover, #aboutBackButton:hover {
+            background: radial-gradient(#3fa8a1, #19857d);
+            cursor: pointer;
+            color:#fff;
+          }
+
+        #summaryDisplaysContainer {
+          display: grid;
+          grid-gap: 5px;
+          grid-template-columns: 40% 26% 34%;
+          max-width: 100%;
+          padding: 2%;
+        }
+        
+          #summaryDisplaysContainer>div {
+            font-size: 14px;
+            width: 100%;  
+          }
+
+          #summaryDisplaysContainer #impactCrater {
+            filter: none !important;
+          }
+
+        .summaryIcon {
+          height: 1.5rem;
+          width: 1.5rem;
+        }
+
+        #summaryPrintButton {
+          float: left;
+          margin-left: 1%;
+        }
+      
+        #summarySlidersContainer {
+          display: grid;
+          grid-template-columns: 50% 50%;
+        }
+
+          #summarySlidersContainer>div {
+            padding: 4%;
+          }
+
+          #summarySlidersContainer p {
+            margin: 2% 0 0 0;
+          }
+        
+        #aboutContainer {
+          display: none;
+        }
+
+  /* What's Next styling */
+
+  .resourcesExpand {
+    border-bottom: 2px solid lightgrey;
+    margin: 0;
+    padding: 2%;
+    transition: background-color 0.5s;
+    border-radius: 5px;
+  }
+
+    .resourcesExpand:hover {
+      background-color: #eaeaea;
+      cursor: pointer;
+    }
+
+  .resourcesList {
+    display: none;
+  }
+
+  .whatNextContent li { 
+    list-style-image: url(../img/question.png); 
+  } 
+
+  .resources li { 
+    list-style-image: url(../img/bullet_arrow.png); 
+  } 
+
+  .whatNextContent {
+    height: auto !important;
+    padding-top: 10px !important;
+  }
+
+  .exploreButton {
+    text-decoration: none;
+    padding: 1% 2%;
+    background: #01646b;
+    color: white;
+    border-radius: 5px;
+    transition: 0.5s;
+  }
+
+    .exploreButton:visited {
+      color: white;
+    }
+
+    .exploreButton:hover {
+      cursor: pointer;
+      filter: drop-shadow(4px 4px 6px rgb(139, 139, 139));
+    }
+
+  html body{
+    scroll-behavior: smooth;
+        max-width: 100%;
+        overflow-x: hidden;
+  }
+
+  .actionInstructions {
+    padding: 2%;
+    border: 2px solid #33737038;
+    border-radius: 5px;
+  }
+
+    .actionInstructions p {
+      margin: 0;
+    }
+
+    .actionInstructions img {
+      border-radius: 5px;
+    }
+
+  #handsContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+    #handsContainer div {
+      justify-self: center;
+      align-self: center;
+      margin: 0 2%;
+    }
+
+  #handsDiv, .actionInstructions > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .whatNextContent h2 {
+    color: #c34d4d;
+  }
+
+  #handsDiv {
+    width: 450px;
+    height: 450px;
+  }
+
+  #handsDiv img {
+    position: absolute;
+    transition: filter 0.5s, transform 0.5s;
+  }
+
+  #concern {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+  }
+
+    #concern:hover, #influence:hover, #control:hover {
+      cursor: pointer;
+      filter: drop-shadow(4px 4px 6px rgb(139, 139, 139));
+      transform: scale(1.01);
+    }
+
+  #influence {
+    width: 100%;
+    max-width: 315px;
+    height: auto;
+  }
+
+  #control {
+    width: 100%;
+    max-width: 155px;
+    height: auto;
+  }
+
+/* ** The Whats Next page of Circles (how) does Climate change impact...? ** */
+
+  #circleContainer, #circlesDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #cicleDiv {
+    width: 500px;
+    /* height: 1000px; */
+  }
+
+  #circleDiv img {
+    position: absolute;
+    transition: filter 0.5s, transform 0.5s;
+  }
+
+  #energy {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    top: 95px;
+    left: 10px;
+  }
+  
+    #oilAndGas {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    right: 20px;
+    top: 10px;
+    }       
+
+    #businesses {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    top: 10px;
+    }  
+        
+  #technology {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    top: 95px;
+    right: 20px;
+    }
+           
+  #whatCanIDo {
+    width: 100%;
+    max-width: 175px;
+    height: 175px;
+    left: 150px;
+    position: relative;
+    /* bottom: 15%; */
+    }
+      
+    #farmers {
+     width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    top: 100px;
+    right: 40px;
+    }
+                 
+  #food {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    right: 130px;
+    top: 20px;
+    }
+          
+  #socialJustice {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    right: 70px;
+    bottom: 10px;
+    }
+             
+  #education {
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    right: 60px;
+    top: 25px;
+    }
+      #energyInfo {
+        border: 2px solid #8fd744;
+        background: linear-gradient(180deg, #8fd74442, transparent);
+      }
+    
+      #oilAndGasInfo {
+        border: 2px solid #f17e3a;
+        background: linear-gradient(180deg, #f17e3a33, transparent);
+      }
+    
+      #businessesInfo {
+        border: 2px solid #ba42bc;
+        background: linear-gradient(180deg, #ba42bc45, transparent);
+      }
+      #technologyInfo {
+        border: 2px solid #3da9f4;
+        background: linear-gradient(180deg, #3da9f438, transparent);    
+      }
+    
+      #foodInfo {
+        border: 2px solid #fde74d;
+        background: linear-gradient(180deg, #fde84d27, transparent);
+      }
+    
+      #educationInfo {
+        border: 2px solid #ed3833;
+        background: linear-gradient(180deg, #ed383329, transparent);
+      }
+      #farmersInfo {
+        border: 2px solid #b97a56;
+        background: linear-gradient(180deg, #b97a5642, transparent);
+      }
+    
+      #socialJusticeInfo {
+        border: 2px solid #3f48cc;
+        background: linear-gradient(180deg, #3f48cc33, transparent);
+      }
+
+  #infoAndCirclesContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border-radius: 5px;
+    border: 2px solid #33737038;
+  }
+
+    #infoAndCirclesContainer p {
+      padding: 0 2%;
+    }
+
+    #circleInstructions img {
+      max-width: 100%;
+      width: 75%;
+      display: flex;
+      padding: 2%;
+      margin: auto;
+    }
+
+  #circleInfoContainer p {
+    margin: 0;
+  }
+
+  .whatsNextButton {
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.32);
+    border: none;
+    border-radius: 30px;
+    background-color: #1b4240;
+    border: 2px solid #1b4240;
+    color: white;
+    font-size: 1.3em;
+    padding: 2% 8%;
+    background-image: none;
+    margin: 2% auto;
+    transition: background-color 0.5s;
+  }
+
+    .whatsNextButton:hover {
+      background-color: #fff;
+      border: 2px solid #1b4240;
+      color: #1b4240;
+      cursor: pointer;
+      /* transform: scale(1.01); */
+    }
+
+  #whatCanIDoButton {
+    width: 50%;
+    font-size: 1.5em;
+  }
+
+  .triangle {
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #337370;
+    margin: 0 auto;
+  }
+
+  .Overviewtitle {
+    border: 2px solid #337370;
+    border-radius: 5px;
+    color: #337370;
+    padding: 2%;
+  }
+
+  .whatsNextInfo, .sectorInfo {
+    display: none;
+    padding: 0% 2% 2% 2%;
+    border-radius: 5px;
+  }
+
+    .whatsNextInfo h2, .sectorInfo h2 {
+      color: black;
+    }
+
+  .sectorInfo {
+    margin: 3%;
+  }
+
+  #concernInfo {
+    border: 2px solid #8fd744;
+    background: linear-gradient(180deg, #8fd74466, transparent);
+  }
+
+  #influenceInfo {
+    border: 2px solid #dcc840;
+    background: linear-gradient(180deg, #fde84d59, transparent);
+  }
+
+  #controlInfo {
+    border: 2px solid #3d908c;
+    background: linear-gradient(180deg, #3d908c61, transparent);
+  }
+
+  #handsLegend {
+    float: right;
+    padding: 2%;
+    text-align: left;
+  }
+
+  .closeInfoButton {
+    float: right;
+    padding: 2% 1%;
+  }
+
+    .closeInfoButton:hover {
+      cursor: pointer;
+    }
+
+  #climateGriefContainer {
+    border: 2px solid #337370;
+    border-radius: 5px;
+    margin-top: 22px;
+  }
+
+    #climateGriefContainer h1 {
+      border: none;
+    }
+
+  #climateGriefBg {
+    background-image: url("../img/Waterfall-pxhere.comenphoto688921.jpg");
+    max-width: 1000px;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    padding: 2%;
+    grid-auto-rows: 1fr;
+  }
+
+  .resource {
+    background-color: #ffffff61;
+    margin: 3%;
+    border-radius: 5px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    transition: 0.5s;
+    box-shadow: 4px 4px 8px #00000085;
+    text-decoration: none;
+  }
+
+    .resource:hover {
+      cursor: pointer;
+      filter: opacity(0.85);
+      transform: scale(1.02);
+      grid-template-columns: 20% 80%;
+      color: black;
+    }
+
+    .resource:visited {
+      color: black;
+    }
+
+    .resource img {
+      width: 100%;
+    }
+
+    .resource div {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: contrast(0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+      .resource div p {
+        width: 100%;
+        text-align: center;
+        margin: 2%;
+        padding: 6% 0%;
+        border-radius: 2px;
+        background: #ffffffcc;
+        font-size: 1.4em;
+      }
+
+    .resource svg {
+      justify-self: center;
+      align-self: center;
+      font-size: 2em;
+    }
+
+    .sector {
+      transition: 0.5s;
+    }
+
+      .sector:hover {
+        cursor: pointer;
+        transform: scale(1.15);
+      }
+
+    #celebrationContainer1, #celebrationContainer2, #celebrationContainer3{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+    }
+
+      #celebrationContainer1 {
+        width: 100px;
+        height: 100px;
+        top: 13%;
+        left: 14.8%;
+      }
+
+      #celebrationContainer2 {
+        width: 75px;
+        height: 75px;
+        top: 32%;
+        left: 23%;
+      }
+
+      #celebrationContainer3 {
+        width: 125px;
+        height: 125px;
+        top: 10%;
+        left: 41%;
+      }
+    
+    .celebrationCircle {
+      width: 0;
+      height: 0;
+      border: 2px dotted rgb(255, 196, 0);
+      border-radius: 50%;
+      opacity: 0;
+      box-shadow: 0px 0px 4px rgb(255, 222, 114);
+    }
+
+  /* End of What's Next styling */
+        
+        /************************************************/
+        /*                 MEDIA QUERIES                 /
+        /************************************************/
+            
+        @media print {
+            .sliderTrack,
+            .sliderFill,
+            .sliderHandle {
+                background-color: black !important;
+                border-style: solid;
+                border-width: 0.5px;
+                /* border-color: rgb(126, 126, 126); */
+            }
+            .sliderHandle,
+            .sliderFill {
+                border-color: rgb(3, 185, 170);
+            }
+
+            .sliderFill {
+              background-color: rgb(3, 185, 170);
+              border-width: 1px;
+            }
+
+            .summaryControls {
+              display: none;
+            }
+
+            .controlRow input {
+              background-color: #fff;
+            }
+
+            .sliderRealityCheck.unrealistic {
+              background-image: none;
+            }
+
+            .kcvsSliderLabelRow .assumptionsButton {
+              display: none;
+            }
+
+            .CIScale, .capturable {
+              position: initial;
+            }
+
+            .capturable > svg {
+              fill: #84d8cc;
+            }
+        }
+            
+        @media screen and (max-width:640px) {
+
+            /* Intro window  */
+            .clearfix {
+              display: flex;
+              flex-direction: column;
+            }
+
+            .imgLeft {
+              max-width: 100%;
+            }
+
+            .learnDOCSbutton {
+              justify-content: center;
+            }
+
+            /* "small" size for Foundation column layout */
+            
+            .columnContainer {
+                height: auto;
+                width: 100%;
+            }
+            
+            .mainRowWrapper {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                -moz-box-orient: vertical;
+                -moz-box-direction: normal;
+                flex-direction: column;
+            }
+            
+            #displaysContainer {
+                /* display: block; */
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: row;
+                -moz-box-orient: horizontal;
+                -moz-box-direction: normal;
+                flex-direction: row;
+                -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+                flex: 0 0 auto;
+                -webkit-justify-content: space-around;
+                justify-content: space-around;
+                height: auto;
+            }
+            
+            #controlsContainer {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 1 100%;
+                -moz-box-flex: 0;
+                flex: 0 1 100%;
+                padding: 0.5rem;
+                overflow-x: hidden;
+            }
+            
+            .shrinkingDisplay {
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 1 auto;
+                -moz-box-flex: 0;
+                flex: 0 1 auto;
+                height: 400px;
+                width: 100%;
+            }
+
+            /* Make icon-style buttons bigger so they're easier to hit, following WCAG accessibility guidelines. */
+            /* .assumptionsButton-icon > .svgIcon {
+                height: 2em;
+                margin-bottom: -0.25em;
+                width: 2em;
+            } */
+
+            /* Summary page */
+            #summaryDisplaysContainer, #summarySlidersContainer {
+              grid-template-columns: auto;
+            }
+
+          /* What's Next styling */
+          #handsContainer {
+            grid-template-columns: 100%;
+          }
+
+          #handsLegend {
+            padding: 0% 0% 10% 0%;
+          }
+
+          .whatNextContent {
+            padding: 32px 2% 2% 2%;
+          }
+
+          #infoAndCirclesContainer {
+            grid-template-columns: 100%;
+            }
+
+          .celebrationContainer1 {
+            top: 11%;
+            left: 16%;
+          }
+    }

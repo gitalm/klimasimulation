@@ -1,0 +1,2817 @@
+
+<!doctype html>
+
+<!-- If you are creating a site with multiple pages, this injected menubar system works very well for keeping all pages with an easy to edit menu bar that stays the same across all pages. -->
+<!-- Review the Applet Template Readme for more information about autoprefixing and minifying your page for deployment   -->
+
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Our Climate</title>
+  <!-- <link rel="stylesheet" href="lib/foundation-6.5.1-custom/foundation.min.css"> -->
+  <link rel="stylesheet" href="./kcvsTheme.4.current.min.css">
+  <!-- <link rel="stylesheet" href="https://kcvs-server.kingsu.ca/lib.kcvs.ca/kcvsTheme.4.current.min.css"> -->
+  <link rel="stylesheet" href="./kcvs-slider.min.css">
+  <!-- <link rel="stylesheet" href="https://kcvs-server.kingsu.ca/lib.kcvs.ca/kcvs-slider.css"> -->
+  <link rel="stylesheet" href="./kcvs-graph.min.css">
+  <!-- <link rel="stylesheet" href="https://kcvs-server.kingsu.ca/lib.kcvs.ca/kcvs-graph.css"> -->
+  <link rel="stylesheet" href="./carbonReductionSim.css">
+  <!-- <link rel="stylesheet" href="css/carbonReductionSim.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<!-- <body class="categoryColor"> -->
+
+<body class="appletBackground">
+  <div id="wrapper">
+    <div id="appletContainer">
+      <!-- Accessibility shortcut, DO NOT TOUCH -->
+      <div id="skiptocontent">
+        <a href="#mainContent">Direkt zum Hauptmenü</a><!-- de -->
+      </div>
+
+      <!--Menu-->
+      <!-- The infoContainer contains all the elements of the menu -->
+      <!-- This is overwritten by the contents.js injected menubar -->
+      <!-- DO NOT ADJUST #infoContainer, make menubar changes in contents.js -->
+      <!-- <nav class="menuBar categoryColor"> -->
+      <nav class="menuBar appletBackground">
+        <!-- DO NOT TOUCH -->
+        <ul class="menu" id="mainMenu">
+          <!-- DO NOT TOUCH -->
+          <!-- Hamburger menu toggle -->
+          <li class="sideMenuToggle" id="toggleMenuNoHover"><input type="checkbox" class="openSidebarMenu"
+              id="openSidebarMenu"><label for="openSidebarMenu" class="sidebarIconToggle" id="menuButton">
+              <div class="spinner diagonal part-1"></div>
+              <div class="spinner horizontal"></div>
+              <div class="spinner diagonal part-2"></div>
+            </label></li>
+          <div id="horizontalMenu">
+            <!-- DO NOT TOUCH -->
+          </div>
+        </ul>
+        <!-- DO NOT TOUCH -->
+        <ul id="verticalMenu" class="vertMenuCont"></ul>
+        <!-- DO NOT TOUCH -->
+        <div id="menuTopLogoContainer" class="menuTopLogoContainer">
+          <a href="https://explainingclimatechange.com" class="topLinkKCVS" target="_blank"
+            title="Visualizing and Understanding the Science of Climate Change"><img src="ECCLogo.png" alt="" /></a>
+          <a href="https://www.kcvs.ca/" class="topLinkKCVS" target="_blank"
+            title="The King's Centre for Visualization in Science"><img src="KCVS_logo_small.png" alt="" /></a>
+        </div>
+      </nav>
+      <!-- DO NOT TOUCH -->
+
+      <!--End of Menu Information-->
+
+
+      <!-- <div class="contentContainer categoryColor"> -->
+      <div class="contentContainer appletBackground">
+        <!-- DO NOT TOUCH -->
+        <!-- Pop Up Windows/items go here -->
+        <div id="window" class="displayBox shadow"></div>
+        <!-- DO NOT TOUCH -->
+        <div id="bigWindow" class="displayBox shadow"></div>
+        <!-- DO NOT TOUCH -->
+        <div class="tooltipwindow"></div>
+        <!-- DO NOT TOUCH -->
+        <!-- End of Pop Up windows -->
+
+
+        <main id="mainContent">
+          <!-- DO NOT TOUCH -->
+
+          <div id="mainRowWrapper" class="mainRowWrapper">
+
+            <!-- Carbon production graph, category menu, etc. -->
+            <div id="displaysContainer" class="columnContainer">
+
+              <!-- Slide-in display panels -->
+              <!-- If more than one are visible, the last one is on top. -->
+              <div id="landArea">
+                <button id="landAreaButton">
+                  <svg class="svgIcon" role="img">
+                    <use href="fontawesome-free-5.9.0-web-solid-sprite_g.svg#globe-americas"></use>
+                  </svg>
+                </button>
+                <div id="landAreaNotice" class="notification shadow closed">
+                  <div id="landAreaMessage" class="notificationMessage landAreaMessage"></div>
+                  <div class="notificationHandle">
+                    <div class="kcvsWidgetPart"></div>
+                    <div class="kcvsWidgetPart"></div>
+                  </div>
+                  <!-- Placebo close button (clicking anywhere in the notification will close it), so we don't need an onclick. :) -->
+                  <button class="closeButton">
+                    <strong>X</strong>
+                  </button>
+                </div>
+              </div>
+              <div id="constraintNotice" class="notification shadow closed">
+                <div id="constraintMessage" class="notificationMessage"></div>
+                <div class="notificationHandle">
+                  <div class="kcvsWidgetPart"></div>
+                  <div class="kcvsWidgetPart"></div>
+                </div>
+                <button class="closeButton">
+                  <strong>X</strong>
+                </button>
+              </div>
+
+              <!-- Carbon Categories: page-selection menu -->
+              <div id="carbonCategoryMenu" class="carbonCategoryMenu">
+                <span>
+                  <button class="carbonCategoryButton color-electricity" id="electricityButton"
+                    aria-label="Elektrizität"> <!-- de -->
+                    <svg class="svgIcon" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_p.svg#plug"></use>
+                    </svg><br>
+                  </button>
+                </span>
+                <span>
+                  <button class="carbonCategoryButton color-transportation" id="transportationButton"
+                    aria-label="Transport"><!-- de -->
+                    <svg class="svgIcon" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_c.svg#car-side"></use>
+                    </svg><br>
+                  </button>
+                </span>
+                <span>
+                  <button class="carbonCategoryButton color-landuse" id="landuseButton" aria-label="Landverbrauch">
+                    <svg class="svgIcon" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_s.svg#seedling"></use>
+                    </svg><br>
+                  </button>
+                </span>
+                <span>
+                  <button class="carbonCategoryButton color-buildings" id="buildingsButton" aria-label="Gebäude">
+                    <svg class="svgIcon" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_b.svg#building"></use>
+                    </svg><br>
+                  </button>
+                </span>
+                <span>
+                  <button class="carbonCategoryButton color-materials" id="materialsButton" aria-label="Materialien">
+                    <svg class="svgIcon" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_d.svg#dolly"></use>
+                    </svg><br>
+                  </button>
+                </span>
+                <span>
+                  <!-- What the "What Next" button links to is set in JavaScript based on a URL parameter. -->
+                  <a target="_blank" id="whatNextButton" class="assumptionsButton whatNextButton">
+                    <div>
+                      what's<br>
+                      next
+                    </div>
+                  </a>
+                </span>
+              </div>
+
+              <div class="shrinkingDisplay graphDisplay" id="projectionGraphDisplay">
+                <div id="celebrationContainer1">
+                  <div class="celebrationCircle"></div>
+                </div>
+                <div id="celebrationContainer2">
+                  <div class="celebrationCircle"></div>
+                </div>
+                <div id="celebrationContainer3">
+                  <div class="celebrationCircle"></div>
+                </div>
+                <h2 class="initInvisible removeOnShrink">Projektion unserer globalen <span class="glossary">GHG</span> 
+			Emissionen: <button title="Annahmen für das Diagramm" id="graphAssumptionsButton"
+                    class="graphAssumptionsIcon assumptionsButton-icon">
+                    <span class="show-for-sr">Zeige die Annahmen für das Diagramm</span>
+                    <svg class="svgIcon svgIcon-inline" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_q.svg#question-circle"></use>
+                    </svg>
+                  </button></h2>
+                <div id="projectionGraphContainer" class="displayGraphContainer">
+                </div>
+                <div class="belowDisplay initInvisible">
+                  <button id="feasibilityIndicator" class="feasibilityBase" title="Reality Check">
+                    <!-- <label for="feasibilityIndicator" class="show-for-sr">Reality Check</label> -->
+                    <span class="feasibilityFill unrealistic"></span>
+                    <span class="feasibilityFill realistic"></span>
+                    <span class="feasibilityText feasibilityLabel unrealistic">nicht realistisch</span>
+                    <span class="feasibilityText feasibilityLabel realistic">realistisch</span>
+                  </button>
+                  <button title="Realism Assumptions" class="feasibilityAssumptionsIcon assumptionsButton-icon">
+                    <span class="show-for-sr">Zeige Annahmen für Realisierung</span>
+                    <svg class="svgIcon svgIcon-inline" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_q.svg#question-circle"></use>
+                    </svg>
+                  </button>
+                  <button class="assumptionsButton removeOnShrink"
+                    onclick="pageCollection.showAssumptions('helpPageAssumptions');"
+                    style="font-size: 12px; margin-right: 10%;">
+                    Zeige generelle Annahmen
+                  </button>
+                  <div class="timeScale hidden" title="Time scale">
+                    <div class="switch">
+                      <input class="switch-input" id="timeScaleSwitch" type="checkbox" name="timeScaleSwitch" checked>
+                      <!-- <input class="switch-input" id="timeScaleSwitch" type="checkbox" name="timeScaleSwitch"> -->
+                      <label class="switch-paddle" for="timeScaleSwitch">
+                        <span class="show-for-sr">Zeitliche Horizont:</span>
+                        <span class="switch-active" area-hidden="true">2100</span>
+                        <span class="switch-inactive" area-hidden="true">2050</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <button class="zoomIcon buttonShine initInvisible">
+                  <svg class="svgIcon">
+                    <title>Zoome hinein für Details des Diagramms</title>
+                    <use href="fontawesome-free-5.9.0-web-solid-sprite_p.svg#plus"></use>
+                  </svg>
+                </button>
+                <!-- <div id="projectionGraphCover" class="shrinkingCover categoryColor"> -->
+                <div id="projectionGraphCover" class="shrinkingCover">
+                  <!-- Cover to capture clicks when display is shrunk to icon size. -->
+                </div>
+              </div>
+              <div class="shrinkingDisplay graphDisplay" id="impactDisplay">
+                <h2 class="initInvisible removeOnShrink">Welche Auswirkungen unsere <span class="glossary">GHG</span> Emissionen
+                  im Jahre 2100 wahrscheinlich haben wird:
+                  <button title="Impact Assumptions" class="impactAssumptionsIcon assumptionsButton-icon">
+                    <span class="show-for-sr">Zeige Annahmen für die Auswirkungen</span>
+                    <svg class="svgIcon svgIcon-inline" role="img">
+                      <use href="fontawesome-free-5.9.0-web-solid-sprite_q.svg#question-circle"></use>
+                    </svg>
+                  </button></h2>
+                <div id="impactContainer" class="displayGraphContainer">
+
+                </div>
+                <button class="zoomIcon buttonShine initInvisible">
+                  <svg class="svgIcon">
+                    <title>Zoom hinein für Details zu den Annahmen</title>
+                    <use href="fontawesome-free-5.9.0-web-solid-sprite_p.svg#plus"></use>
+                  </svg>
+                </button>
+
+                <div id="impactCover" class="shrinkingCover">
+                  <!-- Cover to capture clicks when display is shrunk to icon size. -->
+                </div>
+
+              </div>
+            </div>
+            <!-- displays container -->
+
+
+            <div id="controlsContainer" class="columnContainer">
+
+            </div>
+            <!-- controls container -->
+
+          </div>
+        </main>
+        <!-- Close mainContent -->
+
+        <!-- <div class="licensingContainer">
+                    © The King's Centre for Visualization in Science.  Content subject to KCVS <a href="https://kcvs.ca/termsOfUse.html" target="_blank">terms of use</a>.
+                </div> -->
+
+      </div>
+      <!-- Close contentContainer-->
+    </div>
+    <!-- Close AppletContainer -->
+
+  </div>
+  <!-- Close Wrapper -->
+
+
+  <!-- Everything inside this container will be invisible.  You can use jQuery's append function to move sections from here into specific pages, popup windows, etc.  The IDs should say "Content" to distinguish them from the container pages. -->
+  <div id="contentStorage" style="display: none;">
+
+    <!-- Overall instructions.  First thing that gets displayed. -->
+    <section id="helpPageContent">
+      <h1>Design dein Klima - Anleitung</h1>
+
+      <div class="clearfix">
+        <div class="imgLeft" onclick="createWindow('introVideo', 'big')">
+          <img src="img/video_preview.png">
+          <div>Watch an Introduction Video (Version 3 of DOCs)</div>
+        </div>
+        <div class="clearfix">
+          <button onclick="openLearnDOCS()" class="assumptionsButton buttonByText learnDOCSbutton">
+            <div>
+              <svg class="qm_svgIcon qm_carlIcon" role="img">
+                <use href="fontawesome-free-5.9.0-web-solid-sprite_s.svg#smile-beam"></use>
+              </svg>
+            </div>
+            <div>
+              Das erste Mal?<br>
+              <strong>Starte hier!</strong>
+            </div>
+          </button>
+          <div class="learnDocsSubtitle">Tutorial</div>
+        </div>
+      </div>
+
+      <!-- <button class="assumptionsButton buttonByText" onclick="pageCollection.showAssumptions('helpPageAssumptions');">
+                Show General<br>Assumptions
+            </button> -->
+
+      <p>This global simulation invites you to use currently available technology to
+      <ul>
+        <li>design our climate future, </li>
+        <li>use what you learn in this process to engage in conversations about how these <span
+            class="glossary">greenhouse gas (GHG)</span> reductions can be achieved in time, and</li>
+        <li><strong>create your own action plan</strong> to help tackle this complex and difficult challenge.</li>
+      </ul>
+      </p>
+
+      <p>Billions of humans living on our planet require energy for all aspects of life, and contribute to changes in
+        global <span class="glossary">biogeochemical cycles</span>. This simulation focuses on human-caused <span
+          class="glossary">greenhouse gas</span> emissions, and the expected impacts these will have on four parameters
+        that regulate important aspects of our physical world: global <span class="glossary">greenhouse gas</span>
+        concentrations, ocean acidity, average global surface temperature, and sea level rise. At the top of the
+        simulation is an interactive graph of projected <span class="glossary">greenhouse gas</span> emissions, and
+        effects of those emissions are shown on the impact circle below.</p>
+
+      <ol class="instructionsBg">
+        <li>Select each emissions sector with buttons above the graph.</li>
+        <li>Move the sliders in each sector, to design the changes in those activities you’d like to see humans achieve
+          to chart our ,span class = "glossary">sustainable</span> future. The starting position of the arrow at the top
+          of the yellow triangle
+          represents our current trajectory, 'business as usual', where no major <span
+            class="glossary">technological</span> or <span class="glossary">behavioral</span> changes are made.</li>
+        <li>As you change the sliders, keep an eye on the Reality Check bar just below the graph, to see if your changes
+          are realistic. The question mark icons on any part of the model show the assumptions at work.</li>
+      </ol>
+
+      <p><strong>Can you design a future in which we have brought the projected <span class="glossary">greenhouse
+            gas</span> emissions down close to <span class="glossary">net zero </span> by 2050, helping to avoid some of
+          the worst impacts of <span class="glossary">climate change</span>?</strong></p>
+
+      <p>This instructions page can be accessed from the menu bar, using Help → Instructions.</p>
+
+      <a href="https://kcvs.ca/termsOfUse.html" target="_blank" class="assumptionsButton buttonByText"
+        id="termsOfUseButton">
+        Terms of Use
+      </a>
+      <br><br>
+
+    </section>
+
+    <!-- ------------------------------------------------------------ -->
+    <!-- "Quest Mode" pages (intro tutorial) -->
+
+    <section id="questModeIntroContent">
+      <h1>Design Our Climate Simulation</h1>
+      <h2>Getting Started with DOCs</h2>
+
+      <p>In this simulation, you'll be exploring ways of reducing greenhouse gas emissions.</p>
+
+      <p>We'll start with <em>electricity</em>-related emissions.</p>
+      <!-- <strong>Click <svg class="svgIcon svgIcon-inline" role="img" aria-labelledby="qmStartIconTitle"><title id="qmStartIconTitle">Electricity</title>
+                    <use href="fontawesome-free-5.9.0-web-solid-sprite_p.svg#plug"></use>
+                </svg> to begin!</strong>  -->
+
+      <!-- <p><big>To begin, find the <strong>electricity</strong> button!</big></p> -->
+
+    </section>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <!-- Assumptions. -->
+
+    <section id="helpPageAssumptions" class="assumptionsSection" style="display: none">
+      <h4>General Assumptions</h4>
+      <hr>
+
+      <p>This simulation gives a semi-quantitative overview of <span class="glossary">anthropogenic</span> <span
+          class="glossary">greenhouse
+          gas</span> emissions, or human activities that release heat-absorbing (and, in the case of <span
+          class="glossary">carbon dioxide</span>, acidic)
+        compounds into the atmosphere. This includes the compounds <span class="glossary">carbon dioxide</span>,
+        <span class="glossary">methane</span>, <span class="glossary">nitrogen oxides</span>, and <span
+          class="glossary">hydrofluorocarbons</span>. Of these, <span class="glossary">carbon dioxide</span> is by far
+        the most abundant <a class="reference">(IPCC 2013)</a>. Note that this simulation excludes several other
+        environmentally relevant compounds, such as <span class="glossary">ozone</span>, and <span
+          class="glossary">sulfur hexafluoride</span>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_p.svg#pencil-ruler"></use>
+        </svg> Model Simplification—Data Representation
+      </h4>
+
+      <p>When predicting the impact of certain solutions on the future of global greenhouse gas emissions, unless
+        stated otherwise, it is assumed that no <span class="glossary">technological</span> improvements will be made.
+        This was
+        done to simplify the design
+        of the simulation. As a result, predictions made within the simulation tend to be <span
+          class="glossary">conservative</span>.</p>
+
+      <p>In this model, the <span class="glossary">greenhouse gas</span> emissions from all slider settings are added
+        together to give the total
+        projected global emissions in 2050, and the most recently available data is connected to 2050 with a straight
+        line. Note that emissions are not expected to change linearly between now and 2050. The scenarios with the
+        lowest negative impacts on human life reach peak emissions very soon, and then rapidly decrease emissions by
+        2050. This is simplified as the bottom line on the graph, labeled "<span class="glossary">Resilient</span>
+        Pathway". </p>
+
+      <p>The initial settings of the simulation are considered to be the outcome of continuing with 'business as usual'
+        until 2050. The total global emissions are <span class="glossary" data-glossary="calibration">calibrated</span>
+        to match the <span class='glossary'>RCP</span>8.5 'worst case business as usual' scenario <a
+          class="reference">(IPCC2013)</a> <span class="glossary">greenhouse gas</span> emission projection
+        in 2050. This is done so that the simulation, which is vastly simplified compared to scientific climate models,
+        gives <span class="glossary" data-glossary="qualitative">qualitatively</span> meaningful predictions even though
+        it ignores
+        a number of important <span class="glossary">dependencies</span> and interactions. When an input is changed, the
+        model calculates the
+        resulting change in projected <span class="glossary">greenhouse gas</span> emissions, and subtracts that change
+        from the "business as usual"
+        starting point.
+      </p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_p.svg#pencil-ruler"></use>
+        </svg> Model Simplification—Categories not included
+      </h4>
+
+      <p>This simulation does not intend to be an all-encompassing representation of mitigation strategies, but rather
+        an exercise in seeing how different technologies, and the various combinations of them, address the reduction of
+        <span class="glossary">anthropogenic</span> <span class="glossary">greenhouse gas</span> emissions. Note that
+        some excluded areas include waste management and plastics recycling, military aircraft carrier task forces, many
+        emissions associated with the manufacturing of clothing and consumer goods, and building envelopes. Some of
+        these areas are more important to the biodiversity loss issue than the climate, while others actually have low
+        impact. Areas like food transportation and the electrical and shipping emissions from the clothing industry are
+        included in the model, but not highlighted.</p>
+    </section>
+
+
+
+
+    <!-- Assumptions For the Left Side-->
+    <!-- All Assumptions Graph-Related -->
+    <section id="graphAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Past, Present, and Future Global GHG Emission Rates</h4>
+      <p>This graph shows global historical emissions data, and a range of projections for future scenarios for planet
+        Earth. Toggle the arrows at the bottom left of the graph to see emission rates since the beginning of the
+        <span class="glossary">industrial revolution</span>, when atmospheric <span class="glossary">carbon
+          dioxide</span> concentrations were 280
+        ppm.<a class="reference">(Gutschow2019)</a> </p>
+      <p>The future projections form a triangle, which we refer to as a carbon reduction triangle. More
+        accurately, here we have a <span class="glossary">greenhouse gas</span> reduction triangle, since <span
+          class="glossary">greenhouse gases</span>, such as <span class="glossary">nitrous oxide</span>, <span
+          class="glossary">methane</span>, and <span class="glossary">hydrofluorocarbons(HFCs)</span>, are
+        included as <span class="glossary" data-glossary="CO<sub>2 eq</sub>">carbon dioxide equivalents</span>. The
+        upper edge of this
+        triangle is based on the <span class='glossary'>RCP</span>8.5 'worst case' or 'high emissions business as usual'
+        scenario <a class="reference">(Riahi 2011)</a><a class="reference">(IPCC2013)</a>. This corresponds to the
+        Shared
+        Sociocenomic Pathway SSP5 <a class="reference">(Riahi2017)</a>. The model is <span class="glossary"
+          data-glossary="calibration">calibrated</span> to match this projection when all inputs are at their default
+        values. (See "General Assumptions" for details.)</p>
+      <p>The lower edge (<strong>Climate <span class="glossary">Resilient</span> Pathway</strong>) aims for <span
+          class='glossary'>net zero</span>
+        carbon emissions by
+        2050, in line with the <span class="glossary">2015 Paris Agreement</span>, and the United Nations Framework
+        Convention on Climate Change
+        (UNFCC) recommendation to keep global average temperature increase below 1.5 degrees Celsius, in order to
+        increase our chances of avoiding the worst impacts of <span class="glossary">climate change</span> as outlined
+        by the <span class="glossary">Intergovernmental Panel on Climate Change</span> <a
+          class="reference">(Paris2015)</a><a class="reference">(IPCC2018)</a>. </p>
+      <p>To break down this wicked problem, the triangle formed by the two extremes is divided into <span
+          class="autofill-numWedges">autofill</span> individual wedges, each corresponding to a decrease in total
+        <span class="glossary">greenhouse gas</span>emissions of about <span
+          class="autofill-wedgeCarbon">autofill</span> <span class='glossary'>Gt</span> <span class="glossary">carbon
+          dioxide
+          equivalents</span> by 2050.</p>
+      <p> The concept of 'carbon stabilization wedges' was initially developed by the Carbon <span
+          class="glossary">mitigation</span> Initiative <a class="reference">(CMI)</a> and has been expanded and updated
+        in this simulation. Historical carbon emission data were taken from the PRIMAP-hist national historical
+        emissions time series <a class="reference">(Gutschow2019)</a>.</p>
+    </section>
+
+    <section id="feasibilityAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Rough Reality Check</h4>
+      <p>The <em>Reality Check</em> indicator is not intended to be a <span class='glossary'>quantitative</span> measure
+        of any sort. Rather, the <em>Reality Check</em> is meant to be a <span class="glossary">subjective</span>, <span
+          class='glossary'>qualitative</span> indicator to keep the user within the realm of possibility. What is
+        considered possible primarily focuses on present-day technology; the feasibility of some solutions include
+        political or <span class="glossary">socioeconomic</span> factors.</p>
+    </section>
+    <!-- end of Graph Assumptions -->
+
+
+    <!-- Assumptions for the Impacts -->
+    <section id="impactAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Climate Impact Assumptions</h4>
+      <hr>
+      <p>This display shows estimated impacts of the projected <span class="glossary">greenhouse gas (GHG)</span>
+        emissions on Earth's climate in 2100. While we acknowledge that the local impact of particular changes will be
+        very
+        different in different places around the world, the green circle suggests reasonably safe global boundaries to
+        stay within in order to maintain a habitable planet. The red circle indicates extreme levels that should be
+        avoided. These extreme levels pose high risks, such as causing irreversible tipping points to be reached in
+        other Earth systems. </p>
+      <p>Even a reasonably safe boundary may be problematic when the rate of change exceeds the capacity of an organism
+        or ecosystem to adapt.</p>
+      <p>All impacts are modeled based on the total emissions to 2100, based on a linear extrapolation of the 2050
+        emissions to 2050. Negative emissions are not included; when the emissions pathway reaches 0, it is assumes that
+        emissions remain at 0 until 2100.</p>
+      <p>The dashed lines represent the present-day value for each impact.</p>
+      <p><b><i>Click on each sector in the climate impact circle for details on the underlying assumptions.</i></b></p>
+
+    </section>
+
+    <section id="temperatureAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Temperature Assumptions</h4>
+      <hr>
+      <p>Current Value: <span class="autofill-data" data-impacts=0 data-impactsProperty="present"></span>
+        <br>Reasonable Boundary: <span class="autofill-data" data-impacts=0 data-impactsProperty="reasonable"></span>
+        <br>Extreme Level: <span class="autofill-data" data-impacts=0 data-impactsProperty="extreme"></span>
+      </p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> About the model
+      </h4>
+      <p>Currently, global average surface temperature has increased by <span class="autofill-data" data-impacts=0
+          data-impactsProperty="present"></span> since the industrial
+        revolution <a class="reference">(IPCC 2018)</a>. Global average surface temperature change is considered to be
+        the average change in temperature at the surface of the earth since the pre-industrial reference time period
+        1850-1900. Based on risk analysis by the <span class="glossary">Intergovernmental Panel on Climate Change</span>
+        (IPCC), the United Nations
+        Framework Convention on Climate Change (UNFCC) recommends a reasonable boundary of <span class="autofill-data"
+          data-impacts=0 data-impactsProperty="reasonable"></span>, and that
+        global temperature change not exceed <span class="autofill-data" data-impacts=0
+          data-impactsProperty="extreme"></span> in order to avoid high risks of dangerous climate effects
+        <a class="reference">(IPCC 2018)</a>.</p>
+      <p>Since this is an average global surface temperature, it is important to note that there are certain regions in
+        the world that experience more extreme temperatures than others. For example, the arctic is currently warming at
+        a rate twice the global average <a class="reference">(NOAA ARC 2018)</a>. This model assumes that the global
+        surface temperature will increase by 3 degrees relative to 1750 for a doubling of <span class="glossary">carbon
+          dioxide</span> concentration
+        <a class="reference">(UCAR)</a>. You can learn more about the range of temperature change anticipated for
+        different emission scenarios in the <span class="glossary">IPCC</span> Fifth Assessment report <a
+          class="reference">(IPCC 2014 SYR)</a>. </p>
+    </section>
+
+    <section id="CO2ConcentrationAssumptions" class="assumptionsSection" style="display: none">
+      <h4>CO<sub>2</sub> Assumptions</h4>
+      <hr>
+      <p>Current Value: <span class="autofill-data" data-impacts=2 data-impactsProperty="present"></span>
+        <br>Reasonable Boundary: <span class="autofill-data" data-impacts=2 data-impactsProperty="reasonable"></span>
+        <br>Extreme Level: <span class="autofill-data" data-impacts=2 data-impactsProperty="extreme"></span>
+      </p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> About the model
+      </h4>
+      <p>Atmospheric <span class="glossary">carbon dioxide</span> is a major <span class="glossary">greenhouse gas
+          (GHG)</span>. Current <span class="glossary">carbon dioxide</span> concentration in the atmosphere is <span
+          class="autofill-data" data-impacts=2 data-impactsProperty="present"></span> <a class="reference">(NOAA
+          2019)</a>—this
+        means that out of every million molecules of air, <span class="autofill-data" data-impacts=2
+          data-impactsProperty="present" units="none"></span> of them are CO<sub>2</sub>. In 1750, prior to the
+        industrial revolution, this value was 280 ppm <a class="reference">(NOAA 2019)</a>. The reasonable boundary for
+        atmospheric CO<sub>2</sub> is <span class="autofill-data" data-impacts=2
+          data-impactsProperty="reasonable"></span> (which was surpassed before 1990), and it should not go above <span
+          class="autofill-data" data-impacts=2 data-impactsProperty="extreme"></span> <a class="reference">(OECD
+          2012)</a>.</p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—CO<sub>2</sub> in the Atmosphere
+      </h4>
+      <p>Adapting to a changing climate is possible for some animals and humans, but becomes more difficult the faster
+        change occurs. Both the current amount of <span class="glossary">greenhouse gases</span> in the atmosphere and
+        the rate of change since the
+        beginning of the industrial revolution are unparalleled in human existence. <a class="reference">(AR 2017)</a>
+      </p>
+      <p>To estimate atmospheric CO<sub>2</sub> in 2100 from <span class="glossary">Carbon dioxide</span> emissions, it
+        is assumed that every 17.3 <span class="glossary">Gt</span>
+        of <span class="glossary">CO<sub>2 eq</sub></span> raises concentrations by 1 ppmv <a
+          class="reference">(SSCO2)</a>. You can learn more
+        about the range of atmospheric <span class="glossary">carbon dioxide</span> concentrations anticipated for
+        different emission scenarios in the
+        <span class="glossary">IPCC</span> Fifth Assessment report <a class="reference">(IPCC 2014 SYR)</a>.</p>
+    </section>
+
+    <section id="seaLevelAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Sea Level Rise Assumptions</h4>
+      <hr>
+      <p>Current Value: <span class="autofill-data" data-impacts=1 data-impactsProperty="present"></span>
+        <br>Reasonable Boundary: <span class="autofill-data" data-impacts=1 data-impactsProperty="reasonable"></span>
+        <br>Extreme Level: <span class="autofill-data" data-impacts=1 data-impactsProperty="extreme"></span>
+      </p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Sea Level Rise
+      </h4>
+      <p>There are two main contributors to sea level rise: ocean expansion and melting ice. Water expands as it warms,
+        and the melting of land-based ice (such as the glaciers of Greenland and Antarctica) adds more water to the
+        oceans. The melting of floating ice does not contribute to sea level rise (try this with a glass of ice
+        water!)—but has other effects, including changing Earth's ability to absorb or reflect sunlight. Sea level rise
+        also affects coastal and island communities-the ocean rise floods habitable areas, as well as low-lying
+        agricultural lands.</p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> About the model
+      </h4>
+      <p>Currently, global sea levels have risen on average by <span class="autofill-data" data-impacts=1
+          data-impactsProperty="present"></span> <a class="reference">(Lindsey 2018)</a>. Indicated
+        by the green circle, a "reasonably safe" boundary for sea level rise is <span class="autofill-data"
+          data-impacts=1 data-impactsProperty="reasonable"></span>. Indicated by the red circle, a
+        sea level rise above <span class="autofill-data" data-impacts=1 data-impactsProperty="extreme"></span>
+        represents an extreme level (see Climate Impact Assumptions). <a class="reference">(WEF 2019)</a>.</p>
+      <p>Sea level rise is modelled here using the following method: <a class=" reference ">(NOAA SLR 2012)</a>:
+        <br> E(t) = 0.0017t + bt<sup>2</sup>,
+        <br> where which E(t) is the sea level rise, t is the time since 1992, and b is a constant that scales linearly
+        with net emissions between 0.0000271 (for net 0 in 2050) and 0.000156 (current starting point). You can learn
+        more about the range of sea level rise anticipated for different emission scenarios in the IPCC Fifth Assessment
+        report <a class="reference">(IPCC 2014 SYR)</a>
+      </p>
+
+
+    </section>
+
+    <section id="oceanPHAssumptions" class="assumptionsSection" style="display: none ">
+      <h4>Ocean Acidification Assumptions</h4>
+      <hr>
+      <p>Current Value: <span class="autofill-data" data-impacts=3 data-impactsProperty="present"></span>
+        <br>Reasonable Boundary: <span class="autofill-data" data-impacts=3 data-impactsProperty="reasonable"></span>
+        <br>Extreme Level: <span class="autofill-data" data-impacts=3 data-impactsProperty="extreme"></span>
+      </p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> About the model
+      </h4>
+      <p>When <span class="glossary">carbon dioxide</span> reacts with water, some of it forms carbonic acid, increasing
+        the acidity of oceans. pH is
+        a measure of acidity: more acidic environments have a lower pH. Lower ocean pH makes it difficult for many
+        shelled organisms to grow. Since the industrial revolution in 1750, the ocean pH has decreased by 0.1 units,
+        from 8.2 to 8.1 <a class="reference ">(NOAA OA)</a>. Because pH is a logarithmic scale, this actually
+        corresponds to approximately 30% increase in acidity. When ocean acidity rises, carbonate in the shells of sea
+        creatures becomes more soluble, and their shells can begin to dissolve <a class="reference ">(NOAA OA)</a>. To
+        prevent this, it is recommended that ocean pH remain above 7.7 and not go below 7.4 <a
+          class="reference ">(Caldeira 2003)</a>.</p>
+      <p>The modelling of ocean acidification is fairly complicated, and depends on the salinity, and temperature of the
+        water, as well as the concentration of <span class="glossary">carbon dioxide</span> in the atmosphere. In this
+        simplified estimation, <span class="glossary">carbon dioxide</span> concentration is calculated from your
+        emission choices in DOCs, and the remaining values come from <a class="reference ">(Bozlee 2008)</a>. To see how
+        ocean acidification is actually modelled, go to the KCVS
+        resource "Ocean pH Learning Tool " <a href="https://applets.kcvs.ca/OceanAcidification/oceanAcid.html ">(Click
+          for Link) tool</a></p>
+    </section>
+    <!-- End of the Assumptions for the Impacts -->
+    <!--End of Assumptions for the Left Side-->
+
+
+    <!-- Assumptions for the Right Side -->
+    <!--Common slider Assumptions-->
+    <section id="populationAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Global Population Assumptions</h4>
+      <hr>
+      <p><em>This slider is non-categorical and will appear on every page.</em></p>
+      <p>When it comes to food, transportation, <span class="glossary">electricity</span>, buildings, goods, etc., and
+        their associated emissions, the
+        world's population is an important factor. This slider is based on three scenarios from the United Nations
+        Department of Economic and Social Affairs (UNDESA). The estimates and projections about population from UNDESA
+        form a set of demographic data that looks at population trends and possible outcomes at the global, regional,
+        and national levels.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The default value in the simulation is set at the <span class="glossary">medium variant projection</span>,
+        which is <span class="autofill-data" data-constant="population" units="none"></span> billion people in 2050. The
+        lower limit is set at <span class="autofill-data" data-constant="population" data-property="minFeasible"
+          units="none"></span> billion in 2050 based on the low fertility scenario, and the upper limit is set at <span
+          class="autofill-data" data-constant="population" data-property="maxFeasible" units="none"></span> billion in
+        2050 based on the high fertility scenario <span class="reference">(UNDESA 2019)</span>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Population Uncertainty
+      </h4>
+
+      <p>In combination with lifestyle changes since the Industrial Revolution, the increase in global population is a
+        key pressure on our global support systems. There is inherent uncertainty in population projections, and at the
+        global level that uncertainty is dependant on the range of realistic future trends in fertility, mortality, and
+        international migration—in addition to environmental factors like rises in the spread of disease and natural
+        disasters.</p>
+      <p>While the <span class="glossary">medium variant projection</span> for the global population is considered the
+        most likely outcome, UNDESA says that there is roughly a 27% chance that the world's population could stabilize
+        or even decrease before 2100, depending on a number of factors <span class="reference">(UNDESA 2019)</span>. For
+        example, access to voluntary, high-quality family planning, as well as education can substantially reduce the
+        amount of <span class="glossary">greenhouse gas</span> emissions generated from increasing global population
+        <span class="reference">(DrawdownP 2019)</span>.</p>
+    </section>
+
+    <section id="CCSAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Carbon Capture and Storage Assumptions</h4>
+      <hr>
+      <p><em>This slider is non-categorical and will appear on every page.</em></p>
+      <p>Carbon capture and storage (CCS) refers to a variety of technologies that capture CO<sub>2</sub> from
+        industrial
+        processes, and either store or use the CO<sub>2</sub> for other processes such as CO<sub>2</sub>-enhanced
+        oil recovery (EOR). CCS can be used in a variety of sectors, including <span class="glossary">fossil fuel</span>
+        processing, <span class="glossary">electricity</span>
+        production, fertilizer production, and concrete manufacturing. The slider in this model only considers the
+        impact of CCS in <span class="glossary">fossil fuel</span> production for heating and transportation, and the
+        use of <span class="glossary">coal</span> and <span class="glossary">natural gas</span> in
+        <span class="glossary">electricity</span> production. CCS in the agriculture is considered in the "Decrease in
+        emissions from crop and livestock management and food waste" slider.
+      </p>
+      <p> CCS is still a fairly new technology, but currently available technologies have already been implemented at
+        facilities around the world <span class="reference">(GCCSI2019)</span>. However, the number of these facilities
+        is fairly small, so the default value of this slider is set at <span class="autofill-data"
+          data-constant="CCSPercent"></span>.
+        When implemented, CCS can reduce the emissions of a single plant or processing facility by 90%, and it is
+        estimated that one third of facilities can implement these technologies by 2050 <span
+          class="reference">(Pembina2014)</span>, for a total emissions reduction of <span class="autofill-data"
+          data-constant="CCSPercent" data-property="maxFeasible"></span>.The simulation does not
+        consider technologies for the direct air capture
+        of emissions. Direct air capture, which removes <span classs="glossary">carbon dioxide</span> from ambient air
+        (containing just 0.04% carbon
+        dioxide), is still under development.</p>
+
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> What does this icon mean?
+      </h4>
+
+      <p>This slider works by changing the <span class="glossary">carbon intensity</span> of the sliders that are
+        affected by CCS in the <span class="glossary">electricity</span>,
+        transportation, and buildings sectors. The <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> icon on the sliders indicates that they are considered to be affected by CCS. These sliders also indicate
+        the total emissions before capture and storage in white, and actual emissions in black on their <span
+          class="glossary">carbon intensity</span>
+        scales.</p>
+    </section>
+    <!-- End of common Slider Assumptions -->
+
+    <!--Electricity Assumptions-->
+
+    <section id="electricityOverviewAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Electricity Overview Assumptions</h4>
+      <hr>
+      <p>In 2017, the global total of <span class="glossary">electricity</span> generated was 25,679 <span
+          class="glossary">TWh</span>, which is
+        approximately <span class="autofill-data" data-constant="powerPerCapita" data-property="presentDay"></span> <a
+          class="reference">(WEO 2018</a>, <a class="reference">BP Statistics 2019)</a>. The default values for <span
+          class="glossary">electricity</span> assume that global behavior continues in the direction it is headed from
+        today to the year 2050. Since cooling is 98% electric <a class="reference">(IEAb 2019)</a>, the emissions for
+        cooling buildings are included here in the total <span class="glossary">electricity</span> production. The
+        worldwide demand for cooling buildings made up almost 10% of the total <span class="glossary">electricity</span>
+        used in 2018, and is expected
+        to continue to increase <a class="reference">(TCEP 2019)</a>.</p>
+
+      <h4>Sources of Electricity</h4>
+
+      <p>When other <span class="glossary">electricity</span> sources are increased, the simulation will automatically
+        decrease <span class="glossary">coal</span> in place of the increased alternative, since <span
+          class="glossary">coal</span>
+        currently has both the highest contribution to
+        <span class="glossary">electricity</span> generation and the highest <span class="glossary">carbon
+          intensity</span>. Each slider represents the share of a particular <span class="glossary">electricity</span>
+        source in the overall
+        <span class="glossary">electricity</span> mix—this means they all must add up to 100%. Once you have removed all
+        <span class="glossary">coal</span> shares, you will be prompted to choose to reduce another <span
+          class="glossary">electricity</span> source in
+        order to be able to increase other contributions. It's important to note that the <span
+          class="glossary">alternative energy</span> sources for <span class="glossary">electricity</span> are
+        not considered <span class="glossary">carbon neutral</span>. The carbon intensities, listed in g <span
+          class="glossary">CO<sub>2 eq</sub></span>/kWh, are indicated with the symbol <svg class="svgIcon-inline"
+          role="img">
+          <use xlink:href="fontawesome-free-5.9.0-web-solid-sprite_c.svg#copyright"></use>
+        </svg> on the sliders.</p>
+
+      <p> Note that the sources for
+        <span class="glossary">electricity</span> in this simulation are not the only technologies that may be available
+        in 2050. Only currently
+        available technology has been included in this model.</p>
+      <h4>Click the question mark on each slider for further assumptions for each source of <span
+          class="glossary">electricity</span>.</h4>
+    </section>
+
+    <section id="relativePowerPerCapitaAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Electricity Production Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The global <span class="glossary">electricity</span> production is predicted to be approximately <span
+          class="autofill-data" data-constant="powerPerCapita"></span> in 2050. Reducing <span
+          class="glossary">electricity</span> production to <span class="autofill-data" data-constant="powerPerCapita"
+          data-property="minFeasible"></span> is considered to be a reasonable lower limit <a class="reference">(WEO
+          2018</a>, <a class="reference">BP Statistics 2019)</a>. Since the simulations models these numbers as a
+        multiplier relative to today's <span class="glossary">electricity</span> production, these values translate into
+        a default <span class="glossary">electricity</span>
+        production of <span class="autofill-data" data-constant="relativePowerPerCapita"></span>—which may be reasonably
+        reduced to <span class="autofill-data" data-constant="relativePowerPerCapita"
+          data-property="minFeasible"></span>.</p>
+    </section>
+
+    <!-- For Different Electricity Sources-->
+    <section id="solarAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Solar Power Assumptions</h4>
+      <hr>
+      <p>Solar power includes a variety of technologies that generate <span class="glossary">electricity</span> from
+        solar radiation (<em>sunlight</em>). For simplicity's sake, only solar <span class="glossary">photovoltaic
+          (PV)</span> systems are considered in this simulation. However, keep in mind
+        that <span class="glossary">solar thermal</span>, <span class="glossary">solar concentrator</span>, and <span
+          class="glossary">photocatalytic</span> technologies are being developed. In 2017, global <span
+          class="glossary">electricity</span> generation from solar <span class="glossary">PV</span> was over 460 <span
+          class="glossary">TWh</span>,
+        making up <span class="autofill-data" data-constant="solarPercent" data-property="presentDay"></span> of the
+        <span class="glossary">electricity</span>
+        generation mix <a class="reference">(WEO 2018)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The default solar <span class="glossrary">PV</span> share in 2050 is set to <span class="autofill-data"
+          data-constant="solarPercent"></span>,
+        and it is considered reasonable to have up to <span class="autofill-data" data-constant="solarPercent"
+          data-property="maxFeasible"></span> of global <span class="glossary">electricity</span> supplied by solar
+        <span class="glossary">PV</span>
+        <a class="reference">(Bogdanov 2019)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Solar PV
+      </h4>
+
+      <p>Solar <span class="glossary">PV</span> can be either <span class="glossary">grid connected</span> or function
+        as a standalone system. The
+        <span class="glossary">electricity</span> generated depends on
+        the amount of sunlight reaching the panels. Since sunlight varies over time, the simulation assumes that the
+        <span class="glossary">electricity</span> <span class="glossary">distribution system</span> has sufficient
+        storage capacity to compensate for the inherent <span class="glossary">variability</span>, though this is
+        currently still in the early stages of deployment. Another key assumption is that solar <span
+          class="glossary">PV</span>, with a <span class="glossary">carbon intensity</span> of 46 g <span
+          class="glossary">CO<sub>2 eq</sub></span>/kWh, can
+        directly substitute <span class="glossary">fossil fuels</span> to generate <span
+          class="glossary">electricity</span> <a class="reference">(NREL 2018)</a>.</p>
+      <p>Most solar panels used today are made up of mono/polycrystalline silicon <span class="glossary">PV</span> solar
+        cells that have cell
+        efficiencies ranging from 15-20%. While there are other solar <span class="glossary">PV</span> cell technologies
+        with varying efficiencies in
+        development, they are not considered in this simulation because they are either not <span
+          data-glossary="commercial" class="glossary">commercially</span> available or do
+        not make a significant contribution. Other environmental impacts to consider with respect to solar <span
+          class="glossary">PV</span> <span class="glossary">electricity</span> generation include land-based
+        resources and materials availability.
+        Land
+        requirements were estimated based on a required area of 1kW/m<sup>2</sup>, however, this land does not have
+        to
+        be solely devoted to solar power generation – PV panels can be installed on existing structures to minimize
+        the
+        area requirement, and dual use of land for beekeeping and sheep grazing is being explored. </p>
+
+      <p><b><em>Want to know more about solar <span class="glossary">electricity</span>? Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="windAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Wind Power Assumptions</h4>
+      <hr>
+      <p> Wind levels are not constant over time, so the simulation assumes that the <span
+          class="glossary">electricity</span> <span class="glossary">distribution system</span> has sufficient storage
+        capacity to compensate for <span class="glossary">variability</span>. The simulation assumes that wind power,
+        with a <span class="glossary">carbon intensity</span> of 11 g<span class="glossary">CO<sub>2
+            eq</sub></span>/kWh, can directly substitute <span class="glossary">electricity</span> from <span
+          class="glossary">fossil fuels</span> <a class="reference">(NREL 2018)</a>. The simulation considers both
+        onshore and offshore wind turbines and assumes that they are located in areas with sufficient wind to be viable.
+        The land requirements are based off 2 MW Vattenfall’s <em>Horns Rev 1</em> wind turbines, which occupy
+        approximately 3100 m<sup>2</sup>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Both onshore and offshore wind power systems accounted for approximately 16% of <span
+          class="glossary">renewable</span> capacity and <span class="autofill-data" data-constant="windPercent"
+          data-property="presentDay"></span> of the total global <span class="glossary">electricity</span>
+        production in 2016 <a class="reference">(WEO 2018)</a>. The default wind
+        power share in 2050 is set to <span class="autofill-data" data-constant="windPercent"></span> and an
+        increase up
+        to <span class="autofill-data" data-constant="windPercent" data-property="maxFeasible"></span> is considered
+        reasonable <a class="reference">(WEO 2018)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Wind Power
+      </h4>
+
+      <p>Wind power installations can exist in shallow waters, and the land beneath the turbines can be utilized
+        for other purposes as well. In terms of implementing wind power, there are other things to remember, including:
+      <ul>
+        <li>Environmental impacts on animal habitats and movements</li>
+        <li> Disruption of bird foraging areas and nesting</li>
+        <li>In offshore developments, fish and marine animals</li>
+      </ul>
+      <a class="reference">(Morrison 2004)</a>.</p>
+      <p><b><em>Want to know more about wind power? Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/Z5c50-_hcD0" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="nuclearAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Nuclear Power Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>In 2017, there were 29 countries with operative nuclear plants that produced 2637 <span
+          class='glossary'>TWh</span>, which is about <span class="autofill-data" data-constant="nuclearPercent"
+          data-property="presentDay"></span> of the world’s <span class="glossary">electricity</span> <a
+          class="reference">(WEO 2018</a>, <a class="reference">Drawdown N
+          2019)</a>. Using nuclear technology as an <span class="glossary">electricity</span> source tends to be
+        complicated. On the one hand it is a technology that can help supply the world with <span
+          class="glossary">electricity</span> while avoiding the emissions that drive <span class="glossary">climate
+          change</span>, easing the energy
+        transition substantially <a class="reference">(WEO 2018)</a>, <a class="reference">Drawdown N 2019)</a>. On the
+        other hand, public acceptance can be an issue due to concerns with <span class="glossary">tritium</span>
+        releases, abandoned <span class="glossary">uranium</span> mines, <span class="glossary">mine-tailings</span>
+        pollution, and radiative waste,
+        among others <a class="reference">(Drawdown N 2019)</a>. As a result of these complications, many experts
+        predict that nuclear growth will be limited in the future, so the default nuclear power share in 2050 is set to
+        <span class="autofill-data" data-constant="nuclearPercent"></span> <a class="reference">(WEO 2018)</a>. However,
+        an increase up to <span class="autofill-data" data-constant="nuclearPercent" data-property="maxFeasible"></span>
+        is still considered reasonable <a class="reference">(WEC 2016)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Nuclear Energy
+      </h4>
+
+      <p>Nuclear plants use <span class="glossary">fission</span> of atoms. This splitting of atomic nuclei releases
+        energy, which is used to heat
+        water and power steam turbines to generate <span class="glossary">electricity</span>. Current nuclear technology
+        employs <span class="glossary">uranium</span> <span class="glossary">fission</span> reactors, so this simulation
+        does not
+        include alternative nuclear fuels such as <span class="glossary">thorium</span>, which are still in development.
+        This simulation assumes that nuclear power can directly substitute <span class="glossary">coal</span> power.
+        Nuclear <span class="glossary">electricity</span> has a <span class="glossary">carbon intensity</span> of 16
+        g<span class="glossary">CO<sub>2 eq</sub></span>/kWh; however, unlike other alternative <span
+          class="glossary">electricity</span> sources most of the emissions are from fuel processing and <span
+          class="glossary">decommissioning</span> stages of operation rather than manufacturing and installation <a
+          class="reference">(Sathaye 2011</a>, <a class="reference">Warner 2012)</a>.</p>
+
+      <p><b><em>Want to know more about nuclear energy? Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/44ovdxOvP_A" frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </section>
+
+    <section id="geothermalAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Geothermal Power Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>In 2017 global <span class="glossary">electricity</span> generation from <span
+          class="glossary">geothermal</span> <span class="glossary">electricity</span> was approximately 85 <span
+          class="glossary">TWh</span>, making up less
+        than <span class="autofill-data" data-constant="geothermalPercent" data-property="presentDay"></span> of the
+        <span class="glossary">electricity</span> generation mix <a class="reference">(WEO 2018)</a>. The default
+        geothermal
+        <span class="glossary">electricity</span> share in
+        2050 is set to <span class="autofill-data" data-constant="geothermalPercent"></span> and an increase up to <span
+          class="autofill-data" data-constant="geothermalPercent" data-property="maxFeasible"></span> of <span
+          class="glossary">electricity</span> shares is considered reasonable <a class="reference">(WEO 2018)</a>, <a
+          class="reference">Drawdown G 2019)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Geothermal Electricity
+      </h4>
+
+      <p>Geothermal <span class="glossary">electricity</span> uses heat from the earth to generate power. Note that
+        geothermal <span class="glossary">electricity</span> that provides only heat is not considered in this section
+        of the simulation, but rather
+        in the buildings section. The <span class="glossary">carbon intensity</span> of geothermal is 37 g <span
+          class="glossary">CO<sub>2 eq</sub></span>/kWh and accounts for implementation of the energy resource <a
+          class="reference">(NREL 2018)</a>.</p>
+
+      <p>Different types of geothermal <span class="glossary">electricity</span> production include steam-driven or
+        <span class="glossary">binary cycle</span> plants. Less than 10% of the planet contains prime geothermal
+        conditions <a class="reference">(Drawdown G 2019)</a>. Geothermal is reliable, abundant and efficient, in part
+        because it can take place at all hours and under almost all weather conditions <a class="reference">(Drawdown G
+          2019)</a>. Upfront costs like drilling are expensive, but the heat source itself is free <a
+          class="reference">(Drawdown G 2019)</a>.</p>
+
+      <p><b><em>Want to know more about geothermal <span class="glossary">electricity</span>? Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/DFQrE91kZwk" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+
+    <section id="hydroAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Hydroelectricity Assumptions</h4>
+      <hr>
+      <p>Hydroelectricity (often shortened to hydro) uses flowing water to drive a turbine that can generate <span
+          class="glossary">electricity</span>. To keep things simple, this simulation only considers <span
+          class="glossary">reservoir</span>-based or <span class="glossary">run-of-river</span> hydroelectric plants
+        since <span class="glossary">tidal</span> and <span class="glossary">wave</span>-based hydroelectric power
+        technologies are still being developed. Like the other <span class="glossary">renewable</span> sources
+        considered in this simulation,
+        hydroelectricity is not <span class="glossary">carbon neutral</span>, and has a <span class="glossary">carbon
+          intensity</span> of 4 g <span class="glossary">CO<sub>2 eq</sub></span>/kWh <a class="reference">(IPCC Hydro
+          2011)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>In 2017 global <span class="glossary">electricity</span> generation from hydroelectricity was approximately
+        4109 <span class="glossary">TWh</span>, making up the highest share of <span class="glossary">renewable</span>
+        <span class="glossary">electricity</span> options in the
+        overall mix at <span class="autofill-data" data-constant="hydroPercent" data-property="presentDay"></span> <a
+          class="reference">(WEO 2018)</a>. The default hydroelectricity share in 2050 is set to <span
+          class="autofill-data" data-constant="hydroPercent"></span> due to experts expecting solar and wind to dominate
+        shares in the near future. However, an increase up to <span class="autofill-data" data-constant="hydroPercent"
+          data-property="maxFeasible"></span> of <span class="glossary">electricity</span> shares is considered
+        reasonable <a class="reference">(WEO 2018</a>, <a class="reference">Drawdown H 2019)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Hydroelectricity
+      </h4>
+
+      <p>Large hydroelectric dams produce huge amounts of <span class="glossary">electricity</span> and are reliable,
+        but they must be installed on a suitable river and have significant impacts to keep in mind <a
+          class="reference">(Drawdown H 2019)</a><a class="reference">(IRENA 2018)</a>. Hydroelectric dams occupy large
+        amounts of natural and human habitat, affect water movement and quality, sediment patterns, and fish migration.
+        <a class="reference">(Drawdown H 2019)</a> Smaller <span class="glossary">run-of-river</span> technologies are
+        placed within a free-flowing river or stream without creating a <span class="glossary">reservoir</span>,however
+        this introduces <span class="glossary">variability</span> as the flow of rivers depends on seasons and weather
+        patterns <a class="reference">(Drawdown H 2019)</a>. While <span class="glossary">run-of-river</span>
+        technologies have
+        the potential to impact the surrounding environment, careful design and installation can ensure that is
+        ecologically sound <a class="reference">(Drawdown H 2019)</a>.</p>
+
+      <p><b><em>Want to know more about hydroelectricity? Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/q8HmRLCgDAI" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="NaturalGasAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Electricity from Natural Gas Assumptions</h4>
+      <hr>
+      <p> While still significant, <span class="glossary">natural gas</span> has lower <span class="glossary">carbon
+          intensity</span> relative to <span class="glossary">coal</span> at <span class="constant"
+          data-name="naturalGasCarbonIntensity">461</span>
+        g <span class="glossary">CO<sub>2 eq</sub></span>/kWh <a class="reference">(Heath 2014)</a>. This simulation
+        assumes that <span class="glossary">natural gas</span> can replace <span class="glossary">coal</span> with
+        minimal modifications to current
+        infrastructure.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p><span class="glossary">Natural gas</span> accounted for <span class="autofill-data"
+          data-constant="naturalGasPercent" data-property="presentDay"></span> of global <span
+          class="glossary">electricity</span> production in 2017 and second to <span c;ass="glossary">coal</span>, is
+        one of the primary <span class="glossary">fossil fuels</span> used in electrical power generation <a
+          class="reference">(WEO 2018)</a>.
+        The default share in <span class="glossary">electricity</span> production for <span class="glossary">natural
+          gas</span> in 2050 is <span class="autofill-data" data-constant="naturalGasPercent"></span> and can reasonably
+        be substituted by other alternative sources <a class="reference">(WEO 2018)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Natural Gas Electricity
+      </h4>
+
+      <p>All emissions from <span class="glossary">natural gas</span> <span class="glossary">electricity</span> are
+        considered capturable, so the "Capture and Storage of Fossil Fuel
+        Emissions" subtracts a percentage o the total <span class="glossary">carbon intensity</span> of this slider.</p>
+
+      <p><b><em>Want to know more about <span class="glossary">natural gas</span>? Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/-njmj0diWu8" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="biomassAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Biomass Electricity Assumptions</h4>
+      <hr>
+
+      <p><span class="glossary">Biomass</span> can be harvested to generate steam for <span
+          class="glossary">electricity</span> production, or can be processed into oil or gas. <span
+          class="glossary">Biomass</span> has a <span class="glossary">carbon intensity</span> of 47 g<span
+          class="glossary">CO<sub>2 eq</sub></span>/kWh for <span class="glossary">electricity</span> generation,
+        however, if use and
+        replenishment remain in balance it can be considered to produce <span class="glossary">net zero</span> emissions
+        <a class="reference">(Drawdown
+          B 2019</a>, <a class="reference">O'Conner 2013)</a>. </p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>In 2016 global <span class="glossary">electricity</span> generation from <span class="glossary">biomass</span>
+        <span class="glossary">electricity</span> was approximately 500 <span class="glossary">TWh</span> making up
+        <span class="autofill-data" data-constant="biomassPercent" data-property="presentDay"></span> of the <span
+          class="glossary">electricity</span> generation mix <span class="glossary">(WEO 2018)</span>. The default <span
+          class="glossary">biomass</span> <span class="glossary">electricity</span> share in
+        2050 is set to <span class="autofill-data" data-constant="biomassPercent"></span> and an increase up to <span
+          class="autofill-data" data-constant="biomassPercent" data-property="maxFeasible"></span> of <span
+          class="glossary">electricity</span> shares is considered reasonable <a class="reference">(WEO 2018</a>, <a
+          class="reference">Drawdown B 2019</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Biomass Electricity
+      </h4>
+
+      <p><span class="glossary">Biomass</span> is an <span class="glossary">alternative energy</span> source because it
+        employs carbon that is already
+        in circulation – from the atmosphere to plants and back again. <span class="glossary">Electricity</span> from
+        <span class="glossary">biomass</span> is most effective in reducing emissions if appropriate <span
+          class="glossary">feedstocks</span> are
+        employed, such as waste from mills and agriculture or sustainably grown <span class="glossary">perennial</span>
+        crops <a class="reference">(Drawdown B 2019)</a>. Annual grain crops like corn and sorghum deplete groundwater
+        and
+        require high inputs of energy <a class="reference">(Drawdown B 2019)</a>.</p>
+
+      <p><b><em>Want to know more about biomass <span class="glossary">electricity</span>? Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/yHWcddUZ35s" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="CoalAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Electricity from Coal Assumptions</h4>
+      <hr>
+      <p><span class="glossary">Coal</span> is one of the primary <span class="glossary">fossil fuels</span> used for
+        electrical power generation <a class="reference">(WEO 2018)</a>. This simulation assumes that it can reasonably
+        be substituted by alternative sources <a class="reference">(WEO 2018)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>In 2017, <span class="glossary">coal</span> accounted for <span class="autofill-data"
+          data-constant="coalPercent" data-property="presentDay"></span> percent of the global <span
+          class="glossary">electricity</span> production. <span class="glossary">Coal</span> has a <span
+          class="glossary">carbon intensity</span> of <span class="constant"
+          data-name="baseCoalCarbonIntensity">1001</span> g <span class="glossary">CO<sub>2 eq</sub></span>/kWh assuming
+        an <span class="glossary">efficiency</span> of <span class="autofill-data" data-constant="coalEfficiency"
+          data-property="presentDay"></span>
+        for the average <span class="glossary">coal</span>-fired power plant <a class="reference">(Whitaker 2012)</a>.
+        However, they could reasonably
+        increase to <span class="autofill-data" data-constant="coalEfficiency" data-property="maxFeasible"></span>
+        <span class="glossary">efficiency</span> <a class="reference">(Whitaker 2012)</a>. The simulation sets the
+        default value for <span class="glossary">coal</span> <span class="glossary">electricity</span> production in
+        2100 to <span class="autofill-data" data-constant="coalPercent" data-property="default"></span>. </p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Coal Electricity
+      </h4>
+
+      <p>
+        All emissions from the production of <span class="glossary">coal</span> <span
+          class="glossary">electricity</span> are considered capturable,
+        so <span class="glossary">CCS</span> removes a percentage of
+        the total emissions from this source.
+      </p>
+      <p><b><em>Want to know more about <span class="glossary">coal?</span> Watch this <a
+              href="https://www.youtube-nocookie.com/embed/gl5tY5Noacc" target="_blank">video</a> by our partners at <a
+              href="https://www.studentenergy.org/" target="_blank">Student Energy</a>!</em></b></p>
+
+      <div class="videocontainer videocontainer-16x9"><iframe width="560" height="315"
+          src="https://www.youtube-nocookie.com/embed/iN6LvH_4Q3g" frameborder="0"
+          allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+
+
+    </section>
+
+    <!--End of Electricity Source Assumptions-->
+    <!--End of Electricity Assumptions-->
+
+    <!--Vehicle Assumptions-->
+    <!--For Cars-->
+    <!-- General Car Assumptions -->
+    <section id="transportationPageAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Vehicle Assumptions</h4>
+      <hr>
+      <p>This page invites you to explore factors relating to the <span class="glossary">efficiency</span> and use of
+        cars and air travel. On this
+        page, vehicle refers only to personal cars (or light-duty automobiles); heavy trucks, trains and boats are not
+        considered. The emissions on this page relate only to use, they do not include the emissions associated with the
+        rest of a vehicle or airplane's lifecycle (production and disposal).</p>
+
+      <h4>Click the question mark on each slider for further assumptions.</h4>
+    </section>
+
+
+    <section id="distanceTravelledAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Distance Travelled Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> Default and Realistic Values
+      </h4>
+
+      <p>Each person in the world rides about <span class="autofill-data"
+          data-constant="vehicleDistanceTravelled"></span> <a class="reference">(ICCTTR 2017)</a>in light-duty
+        vehicles. Because of solutions such as public transport, more walkable cities, and bicycle
+        infrastructure, we assume that this can be reduced by 10% to <span class="autofill-data"
+          data-constant="vehicleDistanceTravelled" data-property="minFeasible"></span> in 2050<a
+          class="reference">(Drawdown BI 2020)</a> <a class="reference">(Drawdown WC 2020)</a>,<a
+          class="reference">(Drawdown PT 2020)</a>.</p>
+
+      <h4>Sources of Vehicle Fuel</h4>
+
+      <p>In the Sources of Vehicle Fuel section below, the ratio of the different fuels is illustrated with a bar
+        distribution. <span class="glossary">Gasoline</span>-powered is assumed to be the default vehicle type;
+        increasing other vehicle types will automatically decrease the amount of <span class="glossary">gasoline</span>
+        vehicles in use. If you're
+        curious about the impact of increasing the number of <span class="glossary">gasoline</span> vehicles, simply
+        decrease the other options.</p>
+    </section>
+
+
+    <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+
+    <section id="vehicleOccupancyAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Vehicle Occupancy Assumptions</h4>
+
+      <p>Carpooling is an easy way to reduce driving emissions. In this model, all people in the vehicle, including the
+        driver, are considered occupants. Recently, <span class="glossary">ridesharing</span> and <span
+          class="glossary">carsharing</span> programs have made carpooling more
+        accessible.</p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Right now, average vehicle occupancy is <span class="autofill-data" data-constant="vehicleOccupancy"
+          data-property="default"></span><a class="reference">(Drawdown CP 2020)</a>. Increasing this to <span
+          class="autofill-data" data-constant="vehicleOccupancy" data-property="maxFeasible"></span> is considered
+        reasonable.
+      </p>
+    </section>
+
+    <section id="gasVehicleFuelEfficiencyAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Fuel Consumption Assumptions</h4>
+      <p> This <span class="glossary">gasoline</span> <span class="glossary">fuel consumption</span> slider impacts the
+        fuel <span class="glossary">efficiency</span> of <span class="glossary">gasoline</span>,
+        diesel, LPG, and biofuel vehicles, which are expected to improve at the same rate as gas powered vehicles. The
+        unites here are in litres of <span class="glossary">gasoline</span> equivalent (Lge) per 100 km driven. This
+        also assumes a combination of
+        highway and city driving.
+        Hybrid vehicles, which generate <span class="glossary">electricity</span> from extra energy, then use this later
+        to power the vehicle, are
+        included as improvement in this slider.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The average <span class="glossary">fuel consumption</span> of <span class="glossary">gasoline</span> vehicles
+        is currently around <span class="autofill-data" data-constant="gasVehicleFuelEfficiency"></span> <a
+          class="reference">(IEA TT 2020)</a>. The ICCT initiative has set a goal to decrease <span
+          class="glossary">fuel consumption</span> to <span class="autofill-data"
+          data-constant="gasVehicleFuelEfficiency" data-property="minFeasible"></span>by 2050.
+      </p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?— Fuel Consumption
+      </h4>
+      <p>There are several factors that influence the <span class="glossary">fuel consumption</span> of vehicles. </p>
+      <p> The <span class="glossary">fuel consumption</span> of a vehicle is not always the same! You can improve the
+        fuel <span class="glossary">efficiency</span> of your vehicle
+        by:
+
+      <ul>
+        <li>Accelerating gently</li>
+        <li>Maintaining a steady speed</li>
+        <li>Anticipating traffic</li>
+        <li>Avoiding high speeds</li>
+        <li>Coasting to decelerate</li>
+      </ul>
+      <a class="reference">(NRCan 2020)</a>
+      </p>
+
+    </section>
+
+
+
+    <!--Vehicle Fuel Types-->
+
+    <section id="electricVehiclesAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Electric Vehicle Assumptions</h4>
+      <hr>
+
+      <p>In an electric vehicle, <span class="glossary">electricity</span> stored in a <span
+          class="glossary">battery</span> is used to drive an electric motor. Note that increasing the number of
+        electric vehicles will require more <span class="glossary">electricity</span> production, which is accounted for
+        here, not in the <span class="glossary">electricity</span> sector. You will see the
+        <span class="glossary">carbon intensity</span> of electric vehicles change as you make changes to the <span
+          class="glossary">electricity</span> supply mix you select on the <span class="glossary">electricity</span>
+        page of this simulation.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Current sales of electric vehicles are <span class="autofill-data" data-constant="electricVehiclePercent"
+          data-property="default"></span> of all light duty vehicles, which is the default number of these vehicles on
+        the roads in 2050 <a class="reference">(IEA TT 2020)</a>. It is projected that this can increase to <span
+          class="autofill-data" data-constant="electricVehiclePercent" data-property="maxFeasible"></span> <a
+          class="reference">(Equinor
+          2019)</a>. Electric vehicle technology is improving rapidly, so the consumption of an electric vehicle is very
+        roughly approximated to be 19 kWh/100km <a class="reference">(USDEb 2018)</a>. This does not include emissions
+        from production of the vehicle. Look into embodied energy and lifecycle analyses for more information.</p>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Natural Gas Electricity
+      </h4>
+
+      <p>
+        The reduction of this slider's <span class="glossary">carbon intensity</span> comes from the reduction of the
+        <span class="glossary">carbon intensity</span> of the
+        <span class="glossary">electricity</span> mix. If the <span class="glossary">electricity</span> mix contains
+        <span class="glossary">coal</span> or <span class="glossary">natural gas</span> whose
+        emissions are captured using <span class="glossary">CCS</span>,
+        these reductions will show up on the <span class="glossary">carbon intensity</span> scale for electric vehicles.
+      </p>
+    </section>
+
+
+    <section id="fuelCellsAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Hydrogen Fuel Cell Assumptions</h4>
+      <hr>
+      <p>Hydrogen fuel cells react hydrogen gas with oxygen gas under controlled conditions to generate <span
+          class="glossary">electricity</span>, often to power a vehicle.As a rough estimate, a hydrogen fuel cell
+        vehicle is assumed to have a <span class="glossary">fuel
+          consumption</span> of about 0.9 kg of hydrogen per 100 km <a class="reference">(USDEa 2018)</a>. Hydrogen can
+        be produced from a number of
+        sources, but it is assumed that hydrogen produced for vehicles will come from the <span
+          class="glossary">electrolysis</span> of water, due to this method's simplicity, purity, and low carbon
+        emission <a class="reference">(Wang 2014)</a>. In <span class="glossary">electrolysis</span>, <span
+          class="glossary">electricity</span> is used to split water into hydrogen and oxygen. A typical <span
+          class="glossary">electrolysis</span> cell operates at a potential of around 2.0 V and produces hydrogen with
+        an <span class="glossary">efficiency</span> of 57 kWh per kg of hydrogen <a class="reference">(Wang 2014)</a>.
+        Note that hydrogen currently is
+        commonly generated by steam-methane reforming, which produces <span class="glossary">carbon dioxide</span>, or
+        other carbon-byproducts.</p>
+
+
+      <p>The carbon emissions from the use of hydrogen fuel cells come from the production of hydrogen itself, which
+        here is assumed to be <span class="glossary">electricity</span> <a class="reference">(Rau 2018)</a>. Thus,
+        increasing the number of hydrogen fuel cell vehicles will require more <span class="glossary">electricity</span>
+        production. As with electric vehicles, the impact on emissions will be larger as you decrease the emissions of
+        the <span class="glossary">electricity</span> supply mix you select on the <span
+          class="glossary">electricity</span> page of this simulation.
+        You will see the <span class="glossary">carbon intensity</span> of hydrogen fuel cell vehicles change as you
+        make changes to the <span class="glossary">electricity</span> supply mix.</p>
+
+
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Hydrogen fuel cell vehicles are the least studied of the alternative fuel vehicles presented here, so detailed
+        information is unavailable. As a rough estimate, a hydrogen fuel cell vehicle is assumed to have a <span
+          class="glossary">fuel consumption</span> of about 0.9 kg of hydrogen per 100 km <a class="reference">(USDEa
+          2018)</a>. Currently, <span class="autofill-data" data-constant="fuelCellVehiclePercent"></span> of all
+        vehicles sold are powered by fuel cells, and this is assumed to be the default number of these vehicles on the
+        road in 2050 <a class="reference">(Shell 2017)</a>. It is projected that increasing this to <span
+          class="autofill-data" data-constant="fuelCellVehiclePercent" data-property="maxFeasible"></span> is possible<a
+          class="reference">(Shell 2017)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Natural Gas Electricity
+      </h4>
+
+      <p>
+        The reduction of this slider's <span class="glossary">carbon intensity</span> comes from the reduction of the
+        <span class="glossary">electricity</span> mix.If the <span class="glossary">electricity</span> mix contains
+        <span class="glossary">coal</span> or <span class="glossary">natural gas</span> whose
+        emissions are captured using <span class="glossary">CCS</span>,
+        these reductions will show up on the <span class="glossary">carbon intensity</span> scale for hydrogen fuel cell
+        vehicles.
+      </p>
+    </section>
+
+    <section id="LPGAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Liquefied Petroleum Gas Assumptions</h4>
+      <hr>
+      <p><span class="glossary">Natural gas</span> is a mixture of light hydrocarbons, mostly <span
+          class="glossary">ethane</span>, <span class="glossary">propane</span> and <span
+          class="glossary">butane</span>. It can be burned in an internal combustion engine in a manner similar to <span
+          class="glossary">gasoline</span> or <span class="glossary">ethanol</span>, and is stored either as a
+        compressed gas or as a liquid. A typical <span class="glossary">natural gas</span> powered vehicle uses
+        liquefied petroleum gas (LPG, or
+        autogas), which is mostly <span class="glossary">propane</span>,
+        and is about 25% less fuel efficient per litre than gas-powered vehicles. LPG is assumed to be pure <span
+          class="glossary">propane</span>,
+        which is converted to 1.5 kg of <span class="glossary">carbon dioxide</span> per litre of fuel burned <a
+          class="reference">(USEIAStats
+          2019)</a>. Including production, the "well-to-wheels" <span class="glossary">carbon intensity</span> is 2.5 kg
+        of <span class="glossary">carbon dioxide</span> per litre
+        of fuel burned <a class="reference">(USDOEc)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Presently, <span class="autofill-data" data-constant="propaneVehiclePercent"></span> of light duty vehicles
+        sold run on LPG, which is the default number of these vehicles on the road in 2050 <a class="reference">(WLPGA
+          2019)</a>. It is projected that this
+        can increase to <span class="autofill-data" data-constant="propaneVehiclePercent"
+          data-property="maxFeasible"></span> in 2050 <a class="reference">(WLPGA 2019)</a>.
+      </p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from LPG Vehicles
+      </h4>
+
+      <p>
+        Because <span class="glossary">propane</span> is burned in the vehicle, direct emissions from the vehicle are
+        hard to capture. Therefore, the
+        "capturable" emissions from this vehicle type are assumed to be the emissions in production of LPG. The change
+        in
+        <span class="glossary">carbon intensity</span> because of CSS is calculated as a percentage of the difference
+        between lifecycle and direct
+        emissions from this fuel type.
+      </p>
+    </section>
+
+    <section id="hybridVehiclesAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Plug in Hybrid Vehicle Assumptions</h4>
+      <hr>
+      <p>A hybrid vehicle is a combination of an electric vehicle and a gas-powered vehicle in one system. Depending on
+        the driving conditions and distance, the vehicle can switch between a traditional gas engine, or an electric,
+        <span class="glossary">battery</span>-operated engine. In this section, only plug-in hybrid electric vehicles
+        (PHEVs) are considered, whose
+        batteries can be
+        charged by plugging the vehicle into a source of <span class="glossary">electricity</span>. Other kinds of
+        hybrid vehicles are considered
+        improvements in fuel <span class="glossary">efficiency</span>.
+      </p>
+
+      <p>
+        It is assumed that this type of vehicle typically operates two thirds of its time on <span
+          class="glossary">electricity</span>, and uses its
+        gas
+        engine the remaining third. The <span class="glossary">fuel consumption</span> of each of these modes are
+        considered the same as the
+        fully-electric or fully-gas counterparts <a class="reference">(USDEb 2018)</a><a class="reference">(USEIAStats
+          2019)</a>. This does not include the energy needed to produce the vehicle. Research embodied energy and
+        lifecycle analyses for more information.
+      </p>
+
+      <p>As with hydrogen fuel cells and electric vehicles, note that increasing the number of hybrid vehicles will
+        require more <span class="glossary">electricity</span> production. You will see the <span
+          class="glossary">carbon intensity</span> of hybrid
+        vehicles change as you make changes to the <span class="glossary">electricity</span> supply mix you select on
+        the <span class="glossary">electricity</span> page of this simulation.
+      </p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p> Plug in hybrid electric vehicles currently make up <span class="autofill-data"
+          data-constant="hybridVehiclePercent"></span> of all light duty vehicles sold, which is the default number of
+        these vehicles on the roads in 2050<a class="reference">(Equinor
+          2019)</a>. Increasing this to <span class="autofill-data" data-constant="hybridVehiclePercent"
+          data-property="maxFeasible"></span> is projected to be reasonable <a class="reference">(Equinor 2019)</a>.</p>
+
+
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Hybrid Vehicles
+      </h4>
+
+      <p>
+        The reduction in <span class="glossary">carbon intensity</span> for hybrid vehicles is a percentage of the
+        processing of the <span class="glossary">gasoline</span> used in
+        this vehicle, as well as any emissions captured from the <span class="glossary">electricity</span> mix. See the
+        assumptions for <span class="glossary">gasoline</span> and
+        electric vehicles for more information.
+      </p>
+    </section>
+
+    <section id="dieselAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Diesel Assumptions</h4>
+      <hr>
+      <p>A typical diesel-fuelled vehicle is about 25% more efficient than one that is gas-powered, and one litre of
+        diesel is
+        converted to 2.7 kg of <span class="glossary">carbon dioxide</span> when burned <a class="reference">(USEIAStats
+          2019)</a>.Like <span class="glossary">gasoline</span>, this
+        fuel typically comes from petroleum. Biodiesel is also
+        available, but is not considered here. Including
+        emissions during mining and refining of petroleum, the <span class="glossary">carbon intensity</span> of diesel
+        ranges from 3.2 to 4.5 kg of
+        <span class="glossary">carbon dioxide</span> per litre of fuel, depending on the origin of the petroleum used in
+        production <a class="reference">(Woo 2017)</a>, <a class="reference">(Masnadi 2018)</a>. This simulation uses
+        the lower
+        value.The energy required to produce the vehicle is not considered.
+        Look into embodied energy and lifecycle analyses for
+        more information.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Today, <span class="autofill-data" data-constant="dieselVehiclePercent"></span> of light-duty vehicles sold are
+        fueled by <span class="glossary">diesel</span>, which is the default number of vehicles on the roads in 2050<a
+          class="reference">(Equinor
+          2019)</a>. Projections indicate that increasing this to <span class="autofill-data"
+          data-constant="dieselVehiclePercent" data-property="maxFeasible"></span> is assumed to be realistic <a
+          class="reference">(Equinor
+          2019)</a>.</p>
+
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use xlink:href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Diesel Vehicles
+      </h4>
+
+      <p>
+        Because fuel is burned in the vehicle, direct emissions from the vehicle are hard to capture. Therefore, the
+        "capturable" emissions from this vehicle type are assumed to be the emissions in production of the fuel. The
+        change in
+        <span class="glossary">carbon intensity</span> because of CSS is calculated as a percentage of the difference
+        between lifecycle and direct
+        emissions from this diesel fuel.
+      </p>
+
+
+
+    </section>
+
+    <section id="biofuelAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Biofuels Assumptions</h4>
+      <hr>
+      <p>Although the burning of plant--derived<span class="glossary">Ethanol</span> does release <span
+          class="glossary">carbon dioxide</span>, it is
+        considered <span class="glossary">carbon neutral</span> because the carbon in <span
+          class="glossary">ethanol</span> came from atmospheric
+        <span class="glossary">carbon dioxide</span> that was recently
+        absorbed by plants. Carbon in fossil fuels such as <span class="glossary">gasoline</span>, diesel, and LPGs was
+        also absorbed by plants, but
+        this was millions of years ago, compared to the scale of several years maximum in the case of biofuels.
+        One of the most widely used biofuels is E85, a mixture of 85% <span class="glossary">ethanol</span>
+        and 15% <span class="glossary">gasoline</span>.Note the
+        production of substantial amounts of bioethanol reduces the availability of agricultural land for food
+        production.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p> Presently,<span class="autofill-data" data-constant="biofuelVehiclePercent"></span> of all light-duty vehicles
+        sold run on <span class="glossary">ethanol</span>-based fuels, which is the default number of vehicles on the
+        roads in 2050. <a class="reference">(Equinor 2019)</a>.Increasing this to <span class="autofill-data"
+          data-constant="biofuelVehiclePercent" data-property="maxFeasible"></span> by 2050 is projected to be possible
+        <a class="reference">(IEATT2020)</a>.
+      </p>
+
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use xlink:href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Biofuel Vehicles
+      </h4>
+
+      <p>
+        Because fuel is burned in the vehicle, direct emissions from the vehicle are hard to capture. Therefore, the
+        "capturable" emissions from this vehicle type are assumed to be the emissions in production of the <span
+          class="glossary">gasoline</span>
+        fraction of biofuel. See the assumptions for <span class="glossary">gasoline</span> vehicles for more
+        information.
+      </p>
+
+      <!-- This next section refers to land use - not included in the applet right now -->
+      <!-- <p>Currently, one of the most common <span class="glossary">feedstocks</span> for <span class="glossary">ethanol</span> production is corn, which has an annual <span class="glossary">ethanol</span> yield of 363 200 L/km2 <a class="reference">(Hill 2006)</a>.
+            High-yield feedstocks like <span class="glossary">agave</span>, which can have yields of up to 500 000 L/km2 <a class="reference">(Owen 2014)</a>, are still being researched and are not considered here. The land areas shown below the slider
+            represent the approximate area needed to grow enough <span class="glossary">ethanol</span> <span class="glossary">feedstocks</span> to supply the amount of vehicles set by the user. It is assumed that <span class="glossary">ethanol</span>                is the sole product of this land area, and does not consider <span class="glossary">ethanol</span> produced from food crop waste or other <span class="glossary">biogenic</span> sources.</p> -->
+    </section>
+
+    <section id="gasolineAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Gasoline Assumptions</h4>
+
+      <p><span class="glossary">Gasoline</span> is a product of petroleum refining. Used in a combustion engine, a litre
+        of <span class="glossary">gasoline</span> is converted to
+        2.3 kg of <span class="glossary">carbon dioxide</span> <a class="reference">(USEIAStats 2019)</a>. Well-to-wheel
+        emissions, which include
+        mining and refining of petroleum, range from 2.8 to 3.9 kg of <span class="glossary">carbon dioxide</span> per
+        litre of <span class="glossary">gasoline</span>, depending on
+        the origin of the petroleum <a class="reference">(Woo 2017</a>, <a class="reference">Masnadi 2018)</a>. This
+        simulation uses the lower value of 2.8 kg <span class="glossary">CO<sub>2 eq</sub></span>/L. Not considered is
+        the energy needed to produce the
+        vehicle. Look into embodied energy and lifecycle analyses for more information. </p>
+      <p>Cars running on <span class="glossary">gasoline</span> are currently the most common vehicle type, so that one
+        consideration is to improve
+        fuel <span class="glossary">efficiency</span>. You can modify the <span class=:glossary">fuel consumption</span>
+        of <span class="glosssary">gasoline</span> vehicles using
+        the <span class="glossary">fuel
+          consumption</span> slider above. This model assumes that other technologies (such as LPG vehicles and
+        diesel-powered vehicles) will follow the same developments, so their <span class="glossary">fuel
+          consumption</span> will change with <span class="glossary">gasoline</span> <span class="glossary">fuel
+          consumption</span>.
+      </p>
+
+      <p>Since gas-powered cars are currently the most common, increasing another vehicle type will replace <span
+          class="glossary">gasoline</span>
+        vehicles in this model. </p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> Default and Realistic Values
+      </h4>
+
+      <p> Presently,<span class="autofill-data" data-constant="gasolineVehiclePercent"></span> of all light-duty
+        vehicles sold run on <span class="glossary">gasoline</span>-based fuels, which is the default number of vehicles
+        on the roads for 2050. <a class="reference">(Equinor 2019)</a>. It is reasonable for other vehicle types to
+        replace all gas vehicles, decreasing this to zero by 2050 <a class="reference">(Equinor 2019)</a>.
+      </p>
+
+
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use xlink:href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> Capture and Storage of Emissions from Gasoline Vehicles
+      </h4>
+
+      <p>
+        Because fuel is burned in the vehicle, direct emissions from the vehicle are hard to capture. Therefore, the
+        "capturable" emissions from this vehicle type are assumed to be the emissions in production of <span
+          class="glossary">gasoline</span>. The
+        change in
+        <span class="glossary">carbon intensity</span> because of CSS is calculated as a percentage of the difference
+        between lifecycle and direct
+        emissions from <span class="glossary">gasoline</span>.
+      </p>
+    </section>
+
+    <!--End of Vehicle Fuel Types-->
+    <!--End of Cars-->
+
+    <!-- For Planes -->
+
+    <section id="aviationAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Aviation Assumptions</h4>
+      <hr>
+      <p><span class="glossary">Aviation</span> refers only to passenger air travel, and does not include shipping and
+        transport. This model assumes
+        that in 2050, 45% of people in the world will take at least one flight<a class="reference">(Nergoni2016)</a>.
+      </p>
+
+      <p><i>Why is aviation often targeted as a personal impact?</i> This model assumes 45% of the global population
+        travels by aircraft at least once per year. For those of us who do actually fly, for business or pleasure, this
+        emission source may
+        constitute a large part of our personal carbon footprint, or our emission contributions. Because taxi/take-off
+        are the most emission-intensive, short-haul flights come with a larger relative emission contribution. There are
+        currently no <span class="glossary">renewable</span> alternatives that could be implemented at the necessary
+        scale.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Assuming that 45% of people are taking at least one flight in a year,the average person travels <span
+          class="autofill-data" data-constant="kilometersFlown"></span> , based on 2019 population and flight
+        statistics<a class="reference">(IATA 2019)</a> <a class="reference">(UNDESA2017)</a> . Alternatives to flying,
+        such as high speed <span class="glossary">rail</span> and videoconferencing, make it feasible to decrease
+        individual air travel by 30% to
+        <span class="autofill-data" data-constant="kilometersFlown" data-property="minFeasible"></span> per person a
+        year . it is important to note that total aviation kilometers can be reduces if more individuals choose not to
+        fly at all.
+      </p>
+    </section>
+
+    <section id="aviationFuelAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Aviation Fuel Consumption Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Currently, the IATA's industry average <span class="glossary">fuel consumption</span> is <span
+          class="autofill-data" data-constant="planeFuelEfficiency"></span> per passenger. <a
+          class="reference">(Rutherfordd 2018)</a>. This
+        makes assumptions about the occupancy of the aircraft, with consumption increasing as more seats are left empty;
+        As well, the most fuel intensive parts of a flight are the takeoff and landing, shorter flights have higher
+        <span class="glossary">fuel
+          consumption</span>. Lifecycle emissions for <span class="glossary">aviation</span> fuel or
+        aircraft are not included here. Note that some airlines do use biofuels in an effort to reduce carbon emissions,
+        though there is not yet sufficient research to indicate this is a feasible method for emissions reduction.</p>
+      <p>It is projected that fuel <span class="glossary">efficiency</span> of planes could feasibly be decreased to
+        <span class="autofill-data" data-constant="planeFuelEfficiency" data-property="minFeasible"></span></p>
+    </section>
+    <!--End of Planes-->
+    <!--End of Vehicles-->
+
+    <!--Land Use Assumptions-->
+    <!--Actual Land Use-->
+    <section id="landusePageAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Food, Agriculture, and Land Use Assumptions</h4>
+      <hr>
+      <p>Land Use, Forestry and Agriculture are estimated to have contributed 23% to global <span
+          class="glossary">anthropogenic</span> <span class="glossary">greenhouse gas</span> emissions from 2007-2016 <a
+          class="reference">(IPCC2019)</a> - in other words, this sector contributed a quarter of our emissions in that
+        timespan. This model includes considerations about <span class="glossary">forest</span> use, conservation
+        <span class="glossary">tillage</span> of fields, and an umbrella
+        category of total emissions from agriculture.</p>
+      <p>To reduce emissions, agricultural practices are moving toward regenerative practices, which include soil-carbon
+        <span class="glossary">sequestration</span> through pasture and grasslands management, perennial cropping
+        approaches with reduced
+        fertilization, and addition of biochar to soils. With good grazing practices, such as multi-paddock adaptive
+        grazing, grasslands have the potential to make meaningful contributions to soil carbon <span
+          class="glossary">sequestration</span>.</p>
+      <p>It is important to recognize the complexity of our food system. The details of our practices must be considered
+        in evaluating the impacts of land use, forestry, and agriculture both on <span class="glossary">greenhouse
+          gas</span> emissions and ecology
+        and <span class="glossary">biodiversity</span> <a class="reference">(IPBES2019)</a>.</p>
+
+      <h4>Click the question mark on each slider for further assumptions.</h4>
+    </section>
+
+    <section id="forestProtectionAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Forest Protection Assumptions</h4>
+      <hr>
+      <p>A <span class="glossary">forest</span>, in this case, is defined to include naturally grown <span
+          class="glossary" data-glossary="forest">forests</span> as well as
+        replanted <span class="glossary" data-glossary="forest">forests</span> and tree plantations <a
+          class="reference">(FAOstat 2018)</a>. In this case, <span class="glossary">forest</span> protection
+        includes decreasing the threat of deforestation. Deforestation is defined as the loss of <span
+          class="glossary">forest</span> area, and includes both natural and human-caused <span
+          class="glossary">forest</span> loss. Minimizing deforestation involves anti-logging policies, increasing
+        public awareness through eco-certifications, and <span class="glossary">forest</span> maintenance payments <a
+          class="reference">(DrawdownFP
+          2020)</a>.</p>
+
+      <p>Currently, there are 4 billion hectares of <span class="glossary" data-glossary="forest">forests</span> in the
+        world, 93% of which is natural <a class="reference">(FAO 2019)</a>. The world's <span class="glossary"
+          data-glossary="forest">forests</span> have an average <span class="glossary">carbon density</span> of about
+        <span class="autofill-data" data-constant="forestCarbonStorage" data-property="value"></span> <a
+          class="reference">(FAO 2005)</a>; it is
+        assumed that all of this carbon is released upon deforestation. Carbon
+        released from other sources such as soils is assumed to be <span class="glossary">negligible</span>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The deforestation rate for 2050 is projected to be <span class="autofill-data"
+          data-constant="deforestationRate" units="none"></span> thousand km<sup>2</sup>/year, which is a <span
+          class="autofill-data" data-constant="forestProtection"></span> increase in <span
+          class="glossary">forest</span> protection from today's rate
+        <a class="reference">(CGDEV 2015)</a>. Because of increased <span class="glossary">forest</span> protection and
+        restoration efforts, it is
+        assumed that the NET deforestation rate can be decreased to <span class="autofill-data"
+          data-constant="deforestationRate" data-property="minFeasible" units="none"></span>
+        protection and restoration efforts, it is assumed that the NET deforestation rate can be decreased to <span
+          class="autofill-data" data-constant="deforestationRate" data-property="minFeasible" units="none"></span>
+        km<sup>2</sup>/year in 2050 and <span class="glossary">forest</span> protection can be increased to <span
+          class="autofill-data" data-constant="forestProtection" data-property="maxFeasible"></span> <a
+          class="reference">(DrawdownFP
+          2020</a>, <a class="reference">(DrawdownFT 2020)</a>, <a class="reference">DrawdownTFR 2020)</a>. This means
+        that deforestation and reforestation rates are equal; keep in mind that this still has impacts on
+        <span class="glossary">biodiversity</span>, carbon stored, and other ecosystem functions <a
+          class="reference">(FAO 0def)</a>.</p>
+    </section>
+
+    <section id="reforestationAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Reforestation Assumptions</h4>
+      <hr>
+      <p>Reforestation is the planting of <span class="glossary">forests</span> in areas that historically had them, but
+        presently do not, mainly due to deforestation. Research suggests that reforestation is a viable method for
+        <span class="glossary">climate change</span> <span class="glossary">mitigation</span> because of its usefulness
+        in carbon <span class="glossary">sequestration</span> <a class="reference">(Crowther 2017</a>, <a
+          class="reference">Cunningham
+          2015)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The current reforestation rate is estimated to be <span class="autofill-data" data-constant="reforestationRate"
+          units="none"></span> thousand km<sup>2</sup>/year <a class="reference">(FAD 2011)</a>. Because of previous
+        record high rates and research suggesting that reforestation will greatly increase in the coming years, it is
+        assumed that the reforestation rate can be increased to <span class="autofill-data"
+          data-constant="reforestationRate" data-property="maxFeasible" units="none"></span> thousand
+        km<sup>2</sup>/year <a class="reference">(Bastin 2019)</a>. Tropical <span class="glossary">forests</span>,
+        which have lost 7% of their global
+        land cover from degradation and deforestation, have a notable potential for reforestaton <a
+          class="reference">(Drawdown TFR 2020)</a>.</p>
+    </section>
+
+    <section id="peatlandProtectionAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Peatland Protection Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Peatland
+      </h4>
+
+      <p>Peatland is a type of wetland making up 3% of the world's land area. It is comprised of decaying vegetation
+        that plays an important role in <span class="glossary">sequestration</span>. In terms of land-based carbon
+        storage, peatland ranks the highest with the capacity to reduce <span class="autofill-data"
+          data-constant="peatlandProtectionSavings" data-property="value"></span> <a
+          class="reference">(DrawdownPPR2020)</a>. Although peatland remains largely undamaged, this strong <span
+          class="glossary">sequestration</span> characteristic makes peatland a priority for preservation in order to
+        minimize <span class="glossary">greenhouse gas</span> emissions and avoid the thousands of years it takes to
+        regrow peat.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Currently, peatland is being protected at <span class="autofill-data"
+          data-constant="peatlandProtection"></span>, which is assumed to be the case for 2050, and may be reasonably
+        increased to <span class="autofill-data" data-constant="peatlandProtection" data-property="maxFeasible"></span>
+        through re-established land management considerations <a class="reference">(DrawdownPPR2020)</a>.</p>
+    </section>
+
+    <section id="peatlandRestorationAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Peatland Restoration Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Peatland
+      </h4>
+
+      <p>Peatland that has been damaged can be restored through rewetting. The restoration of peatland is important in
+        avoiding <span class="glossary">greenhouse gas</span> emissions as it reintroduces the huge potential for the
+        land's carbon stock. Rewetting peatland has the capacity to reduce <span class="autofill-data"
+          data-constant="peatlandRestorationSavings" data-property="value"></span> <a
+          class="reference">(DrawdownPPR2020)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Currently, no efforts are being adopted to restore peatland, which is assumed to be the case for 2050. Based on
+        scenarios that include national commitments toward peatland restoration, the restoration rate may be reasonably
+        increased to <span class="autofill-data" data-constant="peatlandRestoration" data-property="maxFeasible"></span>
+        </span> <a class="reference">(DrawdownPPR2020)</a>.</p>
+    </section>
+    <!--End of Actual Land Use-->
+
+    <!-- Agriculture -->
+    <section id="conservationTillageAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Conservation Tillage Assumptions</h4>
+      <hr>
+      <p>Conservation <span class="glossary">tillage</span> is defined as any method of soil <span
+          class="glossary">tillage</span> that leaves at least 30% of the soil surface covered in plant material <a
+          class="reference">(Busari 2015)</a>. Conservation <span class="glossary">tillage</span> is often used to
+        improve soil quality and minimize <span class="glossary">erosion</span>, but another benefit is that
+        conservation <span class="glossary">tillage</span> allows soil to absorb <span class="glossary">carbon
+          dioxide</span> from the atmosphere at a
+        rate of <span class="autofill-data" data-constant="conservationTillageStorage"
+          data-property="value""></span> <a class=" reference">(DrawdownCA 2020)</a>. Soil undergoing
+          conventional <span class="glossary">tillage</span> practices, by comparison, cannot absorb carbon in this way
+          <a class="reference">(Busari 2015)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The total amount of arable <span class="glossary">cropland</span> is currently around <span
+          class="autofill-data" data-constant="conservationTillage" data-property="max"></span>. Of this, <span
+          class="autofill-data" data-constant="conservationTillage"></span> of the land available for conservation
+        <span class="glossary">tillage</span> is expected to be undergoing this solution in 2050, where <span
+          class="autofill-data" data-constant="conservationTillage" data-property="maxFeasible"></span> can reasonably
+        use conservation
+        <span class="glossary">tillage</span> practices <a class="reference">(DrawdownCA 2020)</a>. </p>
+    </section>
+
+    <section id="agricultureAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Agriculture Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Agricultural Emissions
+      </h4>
+
+      <p>The main agricultural <span class="glossary">greenhouse gas</span> emissions are <span class="glossary">nitrous
+          oxide</span>
+        (N<sub>2</sub>O), which is produced from
+        synthetic crop and organic soil cultivation <a class="reference">(FAOstat 2018)</a>.</p>
+      <p>There are a variety of methods that can be used to reduce the amounts of these gases that are produced <a
+          class="reference">(EPA 2019)</a>. <span class="glossary">Nitrous oxide</span> emissions can be reduced through
+        more efficient fertilization
+        methods, and <span class="glossary">methane</span> emissions can be reduced through methods such as more
+        efficient manure management,
+        alternative livestock arrangements, and changes in feed <a class="reference">(EPA 2019</a>, <a
+          class="reference">Legesse 2015)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Food Waste and Production
+      </h4>
+
+      <p>Food waste can be decreased by improving food storage and transport, as well as awareness and behavior at the
+        retail and consumer levels <a class="reference">(DrawdownFW 2020)</a>. Behavioural changes when it comes to food
+        consumption can also have a huge impact on reducing agricultural emissions. Plant-rich diets becoming more
+        accessible, combined with the increased adoption of consuming a healthy average of kilocalories per day and less
+        meat-based products, has a strong potential in minimizing land use emissions <a class="reference">(DrawdownPRD
+          2020)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p> These techniques are difficult to quantify on a global scale, so the simulation allows the reduction of the
+        overall percentage of emissions associated with agriculture. Current agricultural emissions are considered to be
+        10.72 <span class="glossary">Gt</span><span class="glossary">CO<sub>2 eq</sub></span> <a
+          class="reference">(FAOstat 2018</a>, <a class="reference">FAO 2011)</a>. It is assumed
+        that reducing these emissions by <span class="autofill-data" data-constant="agriculture"
+          data-property="maxFeasible"></span> is reasonable—around half from a general decrease of agricultural
+        emissions that come from things like crop and livestock production and management, and the remaining reductions
+        from adopting plant-rich diets <a class="reference">(DrawdownPRD
+          2020)</a>.</p>
+    </section>
+    <!-- End of Agriculture -->
+    <!--End of Land Use Assumptions-->
+
+    <!-- Buildings Assumptions -->
+    <section id="buildingsPageAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Buildings Assumptions</h4>
+      <hr>
+      <p>The building sector accounts for about 40% of total<span class="glossary">CO<sub>2 eq</sub></span> emissions <a
+          class="reference">(IEAa
+          2019)</a>, making it an important target for <span class="glossary">mitigation</span>. <span
+          class="glossary">Mitigation</span> strategies revolve around reducing emissions during building construction
+        and operation, which include energy <span class="glossary">efficiency</span> measures such as the transition
+        from <span class="glossary">incandescent</span> lightbulbs to <span class="glossary">LED</span>s, and improving
+        insulation and air-tightness, as well as <span class="glossary">renewable</span> energy measures such as using
+        energy sources with low or no
+        <span class="glossary">greenhouse gas</span> emissions for heating and cooling in buildings.</p>
+
+      <p>In this simulation, buildings are defined as <span class="glossary">commercial</span> and <span
+          class="glossary">residential</span> structures. Cooling is currently 98% electric <a class="reference">(IEAb
+          2019)</a>, so that the emissions associated with cooling are already included in this simulation as total
+        global <span class="glossary">electricity</span> use, and <span class="glossary">electricity</span> sources, as
+        well as refrigerant management under the materials page.
+        District heating is an important development in building <span class="glossary">efficiency</span> improvements
+        that will be integrated in this
+        simulation in the future.</p>
+
+      <h4>Click the question mark on each slider for further assumptions.</h4>
+    </section>
+
+    <section id="floorAreaAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Building Floor Area Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The construction and use of buildings represent a significant portion of global carbon emissions <a
+          class="reference">(GABC 2016)</a>. The total <span class="glossary">floor area</span> of buildings worldwide
+        can be projected to reach 402.5 billion m<sup>2</sup> by 2050 <a class="reference">(GSR 2017)</a>. Since the
+        simulation represents these values in total <span class="glossary">floor area</span> of buildings per person,
+        the default value is <span class="autofill-data" data-constant="buildingFloorArea"></span>, which can be
+        reasonably reduced to <span class="autofill-data" data-constant="buildingFloorArea"
+          data-property="minFeasible"></span>.</p>
+    </section>
+
+    <section id="constructionCarbonAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Building Construction Carbon Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Embodied emissions are the total carbon emitted during the retrieval, processing, and construction of building
+        materials. We estimate a global average of <span class="autofill-data"
+          data-constant="buildingConstructionCarbon"></span> is emitted during the construction phase of a building in
+        2050, which will be nearly proportional to operational emissions <a class="reference">(Arch 2019</a>, <a
+          class="reference">Huang 2017)</a>. Reducing this value to <span class="autofill-data"
+          data-constant="buildingConstructionCarbon" data-property="minFeasible"></span> is assumed to be realistic
+        based on <span class="glossary">net-zero</span> building solutions and feasible efforts to fully decarbonise a
+        building's operational and
+        embodied emissions <a class="reference">(DrawdownB 2020</a>, <a class="reference">WorldGBC 2019)</a>.</p>
+    </section>
+
+    <section id="buildingLifetimeAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Building Lifetime Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The average <span class="glossary">lifetime</span> of a building impacts the rate at which new buildings must
+        be built. Assuming building renewal phases and architecture advancement, the average building <span
+          class="glossary">lifetime</span> is estimated to be about <span class="autofill-data"
+          data-constant="buildingLifetime"></span> <a class="reference">(Daigo 2017)</a>. Increasing this timespan to
+        <span class="autofill-data" data-constant="buildingLifetime" data-property="maxFeasible"></span> is assumed to
+        be realistic.</p>
+    </section>
+
+    <!-- <section id="numberOfLightsAssumptions" class="assumptionsSection" style="display: none">
+      <h4>Building Lighting Assumptions</h4>
+      <hr>
+      <p>One of the largest uses of energy within a building, one which is most easily reduced, is lighting <a
+          class="reference">(GABC 2016)</a>. Lighting in this case refers only to <span
+          class="glossary">illumination</span> produced from <span class="glossary">electricity</span>; other sources of
+        lighting, such as the burning of fuels for lights, are not considered.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The total number of lights worldwide is projected to reach <span class="autofill-data"
+          data-constant="numberOfLights" units="none"></span> billion by 2050—restricting this value to <span
+          class="autofill-data" data-constant="numberOfLights" data-property="minFeasible" units="none"></span> billion
+        is assumed to be realistic.</p>
+    </section> -->
+
+    <section id="LEDLightingAssumptions" class="assumptionsSection" style="display: none">
+      <h4>LED Lighting Assumptions</h4>
+      <hr>
+
+      <p>Since most of the carbon emitted from light sources is caused by <span class="glossary">electricity</span>
+        consumed during use <a class="reference">(USEERE)</a>, carbon emitted during manufacturing and disposal is
+        assumed to be <span class="glossary">negligible</span>. Because of this, the main factor affecting carbon
+        emissions is the energy usage of electic lighting sources. Electric lighting sources are assumed to be <span
+          class="glossary">100 W</span> <span class="glossary">incandescent</span> light bulbs by default—low energy
+        light sources
+        include <span class="glossary">10 W</span> <span class="glossary">light emitting diodes (LEDs)</span> or <span
+          class="glossary">compact fluorescent lights</span> (CFL).</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Low energy light sources, such as <span class="glossary">LED</span>s, currently make up around <span
+          class="autofill-data" data-constant="LEDLightPercent" data-property="presentDay"></span> of lighting in
+        buildings, and this value is increasing rapidly. The projected default is set to <span class="autofill-data"
+          data-constant="LEDLightPercent"></span>, and it is assumed that having nearly all light sources use low energy
+        lighting devices by 2050 is realistic. Note that increasing the amount of low energy lightbulbs is less
+        effective if the current <span class="glossary">electricity</span> supply is generated from mostly low carbon
+        sources.</p>
+    </section>
+
+    <section id="lowFlowWaterPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Low-flow Water Fixtures Assumptions</h4>
+      <hr>
+      <p>Water waste accounts for the emissions that come out of unnecessary water heating. Low-flow water taps and
+        showerheads
+        decrease water waste, making them a viable strategy in emissions <span class="glossary">mitigation</span>. In
+        this case, it is assumed that more low-flow water fixtures leads to less water waste, which in turn leads to
+        less emissions in water heating. </p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>For each additional percentage share of low-flow water fixtures, it is estimated that <span
+          class="autofill-data" data-constant="lowFlowWaterCarbonIntensity" data-property="value"></span> is saved <a
+          class="reference">(Drawdown WS 2020)</a>. The projected default share of of low-flow water fixtures is set to
+        <span class="autofill-data" data-constant="lowFlowWaterPercent"></span>—increasing this to <span
+          class="autofill-data" data-constant="lowFlowWaterPercent" data-property="maxFeasible"></span> is considered to
+        be reasonable.</p>
+    </section>
+
+    <section id="cleanCookstovesAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Efficient Cookstoves Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Efficient Cookstoves
+      </h4>
+
+      <p>Currently, around half of the world's population use traditional cooking stoves that rely on solid fuel
+        combustion. These stoves also lack proper <span class="glossary">ventilation</span>, which combined with
+        inefficient fuel combustion,
+        increases <span class="glossary">greenhouse gas</span> emissions and air pollution within the house. In this
+        case, an increase in clean cookstoves would mean implementing proper <span class="glossary">ventilation</span>
+        and efficient fuel combustionin
+        in stoves <a class="reference">(Drawdown ICC 2020)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>For each additional percentage of clean cookstove adoption, it is estimated that <span class="autofill-data"
+          data-constant="cleanCookstovesSavings" data-property="value"></span> is saved. The projected adoption of clean
+        cookstoves in 2050 is assumed to be the same as today's—<span class="autofill-data"
+          data-constant="cleanCookstoves"></span>—increasing this to <span class="autofill-data"
+          data-constant="cleanCookstoves" data-property="maxFeasible"></span> is considered to be reasonable as efforts
+        toward total access to clean cookstoves increase while still being limited by cost considerations <a
+          class="reference">(Drawdown ICC 2020)</a>.</p>
+    </section>
+
+
+    <!-- Heating Assumptions -->
+    <section id="biomassHeatingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Biomass Heating Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Biomass Heating
+      </h4>
+
+      <p><span class="glossary">Biomass</span> is a source of energy developed from organic materials such as wood,
+        agricultural residue, and waste <a class="reference">(WBDG 2016)</a>. Heat is released through the burning of
+        <span class="glossary">biomass</span>, which may be burned
+        directly--mainly in the form of wood pellets or pine chips--or after the <span class="biomass">biomass</span>
+        has been converted to fuel <a class="reference">(EIAa 2019)</a>. <span class="glossary">Biomass</span> is
+        <span class="glossary">renewable</span> and <span class="glossary">sustainable</span> when waste materials are
+        used.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The default share of <span class="glossary">biomass</span> heating is set at <span class="autofill-data"
+          data-constant="biomassHeatingPercent"></span>.Once <span class="glossary">biomass</span> (such as trees) is
+        grown specifically for heating,
+        both land use emissions and time required for growth have to be taken into consideration. Thus, the 'realistic'
+        limit for <span class="glossary">biomass</span> heating is fairly low at <span class="autofill-data"
+          data-constant="biomassHeatingPercent" data-property="maxFeasible"></span> global contribution.</p>
+
+      <p><span class="glossary">Biomass</span> may be considered <span class="glossary">carbon neutral</span> since its
+        source plants capture almost the same amounts of
+        CO<sub>2</sub> that the production and burning of <span class="glossary">biomass</span> emit <span
+          class="reference">(EIAb 2019)</span>.
+        Combustion of <span class="glossary">biomass</span> for heating of buildings is estimated to emit 38 kg <span
+          class="glossary">CO<sub>2 eq</sub></span>/MWh heat <a class="reference">(FRUK 2019)</a>.</p>
+    </section>
+
+    <section id="geothermalHeatingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4><span class="glossary">Geothermal</span> Heating Assumptions</h4>
+      <hr>
+      <p><span class="glossary">Geothermal</span> heating is a direct use of the <span
+          class="glossary">geothermal</span> energy stored in the earth. It is an efficient process
+        that entails the
+        <em>movement</em> of heat absorbed from the earth and transferred into buildings.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The projected default share of <span class="glossary">geothermal</span> heating is set at <span
+          class="autofill-data" data-constant="geothermalHeatingPercent"></span>, which can be reasonably increased to
+        <span class="autofill-data" data-constant="geothermalHeatingPercent" data-property="maxFeasible"></span>. <span
+          class="glossary">Geothermal</span>
+        heating is considered a <span class="glossary">renewable</span> source of energy, and is estimated to emit 14
+        kg<span class="glossary">CO<sub>2 eq</sub></span>/MWh of heat
+        <a class="reference">(McCay 2019)</a>.</p>
+    </section>
+
+    <section id="naturalGasHeatingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Natural Gas Heating Assumptions</h4>
+      <hr>
+      <p><span class="glossary">Natural gas</span> is a <span class="glossary">fossil fuel</span> trapped in and
+        extracted from below the Earth's
+        surface. In a <span class="glossary">natural gas</span> burner, water is heated, pumped through a metal coil to
+        heat air, and the air is blown
+        through ducts to provide space heating <a class="reference">(CAPP 2019)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The projected default share of <span class="glossary">natural gas</span> heating is set at <span
+          class="autofill-data" data-constant="naturalGasHeatingPercent"></span>, which can be reasonably increased to
+        <span class="autofill-data" data-constant="naturalGasHeatingPercent" data-property="maxFeasible"></span>. Direct
+        emissions are estimated to be 227 kg <span class="glossary">CO<sub>2 eq</sub></span>/MWh heat in buildings <a
+          class="reference">(FRUK
+          2019)</a>.</p>
+
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> What does this icon mean?
+      </h4>
+
+      <p>
+        Because <span class="glossary">natural gas</span> is burned at the location of the building that is heated,
+        capture and storage of the direct
+        emissions are not feasible.The "capturable" emissions from this heating type are assumed to be the emissions in
+        production of <span class="glossary">natural gas</span>. The change in <span class="glossary">carbon
+          intensity</span> because of CSS is
+        calculated as a percentage of the
+        difference between lifecycle and direct emissions from this fuel type.
+      </p>
+
+
+    </section>
+
+    <section id="oilHeatingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Oil Heating Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Oil is a <span class="glossary">fossil fuel</span> combusted in boilers and furnaces to heat and pump water.
+        The projected default share of oil heating is set at <span class="autofill-data"
+          data-constant="oilHeatingPercent"></span>. Direct
+        emissions from the combustion of oil are estimated to be 244 kg <span class="glossary">CO<sub>2
+            eq</sub></span>/MWh heat, and lifecycle
+        emissions are estimated to be 314 kg <span class="glossary">CO<sub>2 eq</sub></span>/MWh heat in buildings <a
+          class="reference">(FRUK2019)</a>.</p>
+
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> What does this icon mean?
+      </h4>
+
+      <p>
+        Because oil is typically burned at the location of the building that is heated, capture and storage of the
+        direct
+        emissions are not feasible.The "capturable" emissions from this heating type are assumed to be the emissions in
+        production of oil. The change in <span class="glossary">carbon intensity</span> because of CSS is calculated as
+        a percentage of the
+        difference between lifecycle and direct emissions from this fuel type.
+      </p>
+
+
+    </section>
+
+    <section id="electricHeatingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Electric Heating Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Electic Heating
+      </h4>
+
+      <p>Minimizing heating emissions in buildings includes solutions like converting solar energy into thermal and
+        increasing heating <span class="glossary">efficiency</span> with <span class="glossary">heat pumps</span> <a
+          class="reference">(DrawdownHP
+          2020)</a>. Another solution to reducing heating emissions efficiently includes switching to a district heating
+        system, which is a centralized plant of underground pipes that are able to provide heating to multiple buildings
+        <a class="reference">(DrawdownDH 2020)</a>.</p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>The projected default share of other heating is set at <span class="autofill-data"
+          data-constant="electricHeatingPercent"></span>. Because the adoption of <span class="glossary">heat
+          pumps</span> and <span class="glossary">solar</span> thermal energy is growing quickly, electric heating
+        sources can reasonbly be increased
+        to <span class="autofill-data" data-constant="electricHeatingPercent" data-property="maxFeasible"></span>. The
+        <span class="glossary">carbon intensity</span> used here is the <span class="glossary">carbon intensity</span>
+        of the <span class="glossary">electricity</span> grid you choose in the <span
+          class="glossary">electricity</span> sector
+        of this simulation.</p>
+
+
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> What does this icon mean?
+      </h4>
+
+      <p>
+        The decrease in <span class="glossary">carbon intensity</span> from <span class="glossary">CCS</span> in
+        electric heating come from the <span class="glossary">CCS</span> in
+        the <span class="glossary">electricity</span> mix. Therefore, increasing the percentage of <span
+          class="glossary">coal</span> and <span class="glossary">natural gas</span>
+        <span class="glossary">electricity</span> will increase the effect of <span class="glossary">CCS</span>.
+      </p>
+
+    </section>
+
+    <section id="coalHeatingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Coal Heating Assumptions</h4>
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p><span class="glossary">Coal</span> is a carbon-rich <span class="glossary">fossil fuel</span> burned to heat
+        <span class="glossary">residential</span> and <span class="glossary">commercial</span>
+        buildings. Although using <span class="glossary">coal</span> for heating buildings has decreased in favour of
+        alternative fuels, <span class="glossary">coal</span>
+        consumption for heating use is still on the rise in some countries <a class="reference">(Kerimray 2017)</a>.
+        The
+        projected default share of <span class="glossary">coal</span> heating is set at <span class="autofill-data"
+          data-constant="coalHeatingPercent"></span>. Heating through burning <span class="glossary">coal</span> is
+        estimated to contribute 414
+        kg <span class="glossary">CO<sub>2 eq</sub></span>/MWh heat to building emissions <a class="reference">(FRUK
+          2019)</a>.
+      </p>
+
+      Direct
+      emissions from the combustion of coal are estimated to be 341 kg <span class="glossary">CO<sub>2
+          eq</sub></span>/MWh heat, and lifecycle
+      emissions are estimated to be 414 kg <span class="glossary">CO<sub>2 eq</sub></span>/MWh heat in buildings <a
+        class="reference">(FRUK2019)</a>.</p>
+
+      <hr>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_a.svg#archive"></use>
+        </svg> What does this icon mean?
+      </h4>
+
+      <p>
+        Because <span class="glossary">coal</span> is typically burned at the location of the building that is heated,
+        capture and storage of the
+        direct
+        emissions are not feasible.The "capturable" emissions from this heating type are assumed to be the emissions in
+        production of <span class="glossary">coal</span>. The change in <span class="glossary">carbon intensity</span>
+        because of CSS is calculated as
+        a percentage of the
+        difference between lifecycle and direct emissions from this fuel type.
+      </p>
+
+    </section>
+    <!-- End of Heating -->
+    <!-- Cooling Assumptions -->
+    <section id="naturalGasCoolingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Natural Gas Cooling Assumptions</h4>
+      <hr>
+      <p><span class="glossary">Natural gas</span> is estimated to emit 0.8 <span class="glossary">Gt</span> <span
+          class="glossary">CO<sub>2
+            eq</sub></span>/year in buildings,
+        taking up about 2% of fuel shares
+        for space cooling in buildings <a class="reference">(IEAb 2019)</a>.</p>
+    </section>
+
+    <section id="electricityCoolingPercentAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Natural Gas Cooling Assumptions</h4>
+      <hr>
+      <p>Space cooling, or air conditioning, has recently become a leading driver for <span
+          class="glossary">electricity</span> demand with an
+        increase of about 5% in 2017 <a class="reference">(IEAb 2019)</a>. <span class="glossary">Electricity</span> for
+        air conditioning is fuelled
+        largely by <span class="glossary">fossil fuels</span>, with an estimated 2.7 <span class="glossary">Gt</span>
+        <span class="glossary">CO<sub>2
+            eq</sub></span>/year in
+        buildings emissions for <span class="glossary">coal</span>, while
+        <span class="glossary">natural gas</span> has an estimated 0.8 <span class="glossary">Gt</span> <span
+          class="glossary">CO<sub>2
+            eq</sub></span>/year in buildings
+        emissions.</p>
+    </section>
+    <!-- End of Cooling -->
+    <!--End of Assumptions for the Right Side-->
+
+    <!-- Materials Assumptions -->
+    <section id="materialsPageAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Click the question mark on each slider for relevant assumptions.</h4>
+    </section>
+
+    <section id="cementCompositionAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Cement Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Cement Emissions
+      </h4>
+
+      <p>The cement sector holds the second largest share of industrial CO<sub>2</sub> emissions at 27%. Carbon
+        emissions considered
+        here arise from the chemical reaction in cement hardening, which releases <span class="glossary">carbon
+          dioxide</span>. Up to 43% of these
+        emissions may be reabsorbed by the cement over its lifetime, which is not included here. </p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Clinker is the binding ingredient in the production of concrete, which allows the cement to harden in reaction
+        to water. For each additional percentage of substituting conventional clinker with materials such as volcanic
+        ash, finely ground limestone, and <span class="glossary">fly ash</span>, it is estimated that <span
+          class="autofill-data" data-constant="cementCarbonIntensity" data-property="value"></span> per year is saved <a
+          class="reference">(DrawdownC 2020)</a>. The projected default substitution of alternative materials in the
+        composition of cement is <span class="autofill-data" data-constant="cementComposition"></span>—increasing this
+        to <span class="autofill-data" data-constant="cementComposition" data-property="maxFeasible"></span> is
+        considered to be reasonable <a class="reference">(DrawdownC 2020)</a>.</p>
+    </section>
+
+    <section id="HFCAssumptions" class="assumptionsSection" style="display: none">
+      <h4>HFC Refrigerant Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_l.svg#lightbulb"></use>
+        </svg> Did you know?—Refrigerant Emissions
+      </h4>
+
+      <p>Refrigerants are substances that absorb and release heat in cooling systems, such as refrigerators and air
+        conditioning, with the use of compressors and evaporators. <span class="glossary">CFC</span>s and <span
+          class="glossary">HCFC</span>s used to be the main refrigerants, which have been effectively phased out by the
+        Montreal Protocol restricting the release of these gases into our atmosphere <a class="reference">(IPCC
+          2014)</a>. The ability of <span class="glossary">CFC</span>s and <span class="glossary">HCFC</span>s to break
+        down <span class="glossary">ozone</span> was a major
+        contributor to the formation of the
+        <span class="glossary">ozone</span> hole. <span class="glossary">HFC</span>s have replaced <span
+          class="glossary">CFC<span>s and <span class="glossary">HCFC</span>s as most
+            common refrigerant. While
+            <span class="glossary">HFCs</span> are not <span class="glossary">ozone</span>-depleting, they are strong
+            <span class="glossary">greenhouse gas</span> that don't naturally occur on Earth, with an
+            emissions growth rate of 10-15% each year <a class="reference">(CCAC 2016)</a>.</p>
+      <p><span class="glossary">Mitigation</span> of <span class="glossary">HFC</span> emissions includes proper
+        lifetime management (leak management), refrigerant recovery and disposal, and substituting <span
+          class="glossary">HFCs</span> with
+        alternative, naturally occurring refrigerants, such as <span class="glossary">ammonia</span> and <span
+          class="glossary">propane</span>. <a class="reference">(IPCC
+          2014</a>,<a class="reference"> Drawdown RM 2019)</a></p>
+
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p><span class="glossary">HFC</span> emissions are estimated to be 8.8 <span class="glossary">Gt</span><span
+          class="glossary">CO<sub>2
+            eq</sub></span>/year in 2050 <a class="reference">(EPA 2009)</a>. The
+        projected default reduction of <span class="glossary">HFC</span> emissions is set at <span class="autofill-data"
+          data-constant="HFCs"></span>—decreasing this to <span class="autofill-data" data-constant="HFCs"
+          data-property="maxFeasible"></span> is considered to be reasonable <a class="reference">(DrawdownAR 2020)</a>.
+      </p>
+    </section>
+
+    <section id="shippingAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Shipping Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p><span class="glossary">Freight</span> transport is another steadily growing sector <a class="reference">(ITF
+          2017)</a>. We estimate the
+        annual total goods shipped per-person in 2050 to be <span class="autofill-data"
+          data-constant="shippingPerCapita"></span>, assuming a population of 9.7 billion <a class="reference">(ITF
+          2019)</a>. Your population prediction on the common sliders is then used to calculate the total amount of
+        goods shipped in 2050. Shipping is considered to be the international (<span class="glossary">maritime</span>
+        and <span class="glossary">aviation</span>) and intranational
+        (road and <span class="glossary">rail</span>) transport of goods. Each type of transport is assumed to have the
+        2050 shares: 75.8% by sea, 17%
+        by road, 7% by train, and 0.2% by air.</p>
+    </section>
+
+    <section id="roadShippingAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Road Shipping Assumptions</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Global <span class="glossary">freight</span> shipping by road is increasing, accounting for about 6% of <span
+          class="glossary">GHG</span>
+        emissions <a class="reference">(Drawdown T 2019)</a>. The main <span class="glossary">mitigation</span> strategy
+        for decreasing road shipping emissions is adopting more fuel efficient technologies for <span
+          class="glossary">freight</span> trucks. The
+        <span class="glossary">carbon intensity</span> of road shipping is estimated to be <span class="autofill-data"
+          data-constant="roadShipping"></span> <a class="reference">(CN 2019)</a>. Decreasing this to <span
+          class="autofill-data" data-constant="roadShipping" data-property="minFeasible"></span> is considered to be
+        reasonable <a class="reference">(ECTA 2011)</a>.</p>
+    </section>
+
+    <section id="railShippingAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Annahmen für die Zugfracht</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p><span class="glossary">Rail</span> shipping accounts for the transport of 12 billion tons of <span
+          class="glossary">freight</span> per year
+        <a class="reference">(Drawdown
+          R 2019)</a>. <span class="glossary">Mitigation</span> strategies for <span class="glosssary">rail</span>
+        shipping include improving train
+        fuel and operational <span class="glossary">efficiency</span> and the electrification of railways. The <span
+          class="glossary">carbon
+          intensity</span> of <span class="glossary">rail</span> shipping is
+        estimated to be <span class="autofill-data" data-constant="railShipping"></span> <a class="reference">(CN
+          2019)</a>. Decreasing this to <span class="autofill-data" data-constant="railShipping"
+          data-property="minFeasible"></span> is considered to be reasonable as electric trains increase along with
+        <span class="glossary">renewable</span> energy <a class="reference">(Drawdown R 2019)</a>.</p>
+    </section>
+
+    <section id="seaShippingAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Annahmen für die Schifffracht</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Maritime shipping accounts for 75.8% of shipping and 3% of global <span class="glossary">GHG</span> emissions
+        <a class="reference">(ITF 2019)</a>. Through design and technology replacement, increasing ship efficiency and
+        less fuel-intensive shipping are the main <span class="glossary">mitigation</span> strategies for shipping by
+        sea <a class="reference">(Drawdown S 2019)</a>. The <span class="glossary">carbon intensity</span> of maritime
+        shipping is estimated to be
+        <span class="autofill-data" data-constant="seaShipping"></span> <a class="reference">(CN 2019)</a>. Decreasing
+        this to <span class="autofill-data" data-constant="seaShipping" data-property="minFeasible"></span> is
+        considered to be reasonable <a class="reference">(Walsh 2011)</a>.</p>
+    </section>
+
+    <section id="skyShippingAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Annahmen für die Luftfracht</h4>
+      <hr>
+      <h4>
+        <svg class="svgIcon-inline" role="img">
+          <use href="fontawesome-free-5.9.0-web-solid-sprite_i.svg#info"></use>
+        </svg> 2050 Default and Realistic Values
+      </h4>
+
+      <p>Emissions from air transport are estimated to be 2-3 times higher impact in relation to ground transport
+        because of close proximity to the atmosphere <a class="reference">(TFC 2019)</a>. Fuel <span
+          class="glossary">efficiency</span> is the main
+        <span class="glossary">mitigation</span> strategy for reducing the <span class="glossary">GHG</span> emissions
+        of airplanes <a class="reference">(Drawdown Air 2019)</a>. The <span class="glossary">carbon intensity</span> of
+        shipping by air is estimated
+        to be <span class="autofill-data" data-constant="skyShipping"></span> <a class="reference">(Howitt 2011)</a>.
+        Decreasing this to <span class="autofill-data" data-constant="skyShipping" data-property="minFeasible"></span>
+        is considered to be reasonable <a class="reference">(TFC 2019)</a>.</p>
+    </section>
+
+    <!-- Land Area Assumptions -->
+    <section id="landAreaAssumptions" class="assumptionsSection" style="display: none;">
+      <h4>Landflächen Annahmen</h4>
+      <hr>
+      <p>Die folgenden Flächennäherungen werden für die Annahmen verwendet:</p>
+      <table class="landAreaTable">
+        <tbody>
+          <tr>
+            <th>Nationen</th>
+            <th>Fläche (km<sup>2</sup>)</th>
+          </tr>
+          <tr>
+            <td>Die Welt</td>
+            <td>150,000,000</td>
+          </tr>
+          <tr>
+            <td>Eurasien</td>
+            <td>54,000,000</td>
+          </tr>
+          <tr>
+            <td>Afrika</td>
+            <td>30,000,000</td>
+          </tr>
+          <tr>
+            <td>Russland</td>
+            <td>17,000,000</td>
+          </tr>
+          <tr>
+            <td>Kanada</td>
+            <td>10,000,000</td>
+          </tr>
+          <tr>
+            <td>Brasilien</td>
+            <td>8,000,000</td>
+          </tr>
+          <tr>
+            <td>Australien</td>
+            <td>7,000,000</td>
+          </tr>
+          <tr>
+            <td>Indien</td>
+            <td>3,000,000</td>
+          </tr>
+          <tr>
+            <td>Saudi Arabien</td>
+            <td>2,000,000</td>
+          </tr>
+          <tr>
+            <td>Mongolei</td>
+            <td>1,500,000</td>
+          </tr>
+          <tr>
+            <td>Ägypten</td>
+            <td>1,000,000</td>
+          </tr>
+          <tr>
+            <td>Spanien</td>
+            <td>500,000</td>
+          </tr>
+          <tr>
+            <td>Deutschland</td>
+            <td>350,000</td>
+          </tr>
+          <tr>
+            <td>Phillipinen</td>
+            <td>300,000</td>
+          </tr>
+          <tr>
+            <td>Großbritannien</td>
+            <td>200,000</td>
+          </tr>
+          <tr>
+            <td>Island</td>
+            <td>100,000</td>
+          </tr>
+          <tr>
+            <td>Costa Rica</td>
+            <td>50,000</td>
+          </tr>
+          <tr>
+            <td>El Slavador</td>
+            <td>20,000</td>
+          </tr>
+          <tr>
+            <td>Prince Edward Inseln</td>
+            <td>5,000</td>
+          </tr>
+          <tr>
+            <td>Hong Kong</td>
+            <td>900</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+
+  </div>
+
+  <script src="./jquery-3.3.1.min.js"></script>
+  <script src="./d3.v5.min.js"></script>
+  <!-- <script src="lib/foundation-6.5.1-custom/what-input.js"></script> -->
+  <!-- <script src="lib/foundation-6.5.1-custom/foundation.min.js"></script> -->
+  <script src="./contents.js"></script>
+  <script src="./kcvsTheme.4.current.min.js"></script>
+  <!-- <script src="https://kcvs-server.kingsu.ca/lib.kcvs.ca/kcvsTheme.4.current.js"></script> -->
+  <!-- <script src="../lib.kcvs.ca/kcvsTheme.4.current.js"></script> -->
+  <script src="./kcvs-slider.min.js"></script>
+  <!-- <script src="https://kcvs-server.kingsu.ca/lib.kcvs.ca/kcvs-slider.js"></script> -->
+  <script src="./kcvs-graph.min.js"></script>
+  <!-- <script src="https://kcvs-server.kingsu.ca/lib.kcvs.ca/kcvs-graph.js"></script> -->
+  <script src="./simData2020.js"></script>
+  <!-- <script src="js/simData.js"></script> -->
+  <!-- <script src="js/carbonReductionSim.min.js"></script> -->
+  <script src="./carbonReductionSim.js"></script>
+</body>
+
+</html>
